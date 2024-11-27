@@ -7,4 +7,5 @@ package com.himym.androidcorekit
  * @desc:
  */
 class Main {
+
 }
