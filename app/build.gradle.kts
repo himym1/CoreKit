@@ -6,7 +6,7 @@ plugins {
 
 }
 
-group = "com.github.himym1"
+group = "com.github.himym"
 version = "1.0.0"
 
 afterEvaluate {
@@ -15,7 +15,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             create<MavenPublication>("release") {
                 groupId = (group.toString())
-                artifactId = "AndroidCoreKit"
+                artifactId = "CoreKit"
                 version = version
             }
         }
