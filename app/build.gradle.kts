@@ -1,6 +1,25 @@
 plugins {
-    alias(libs.plugins.android.application)
+//    alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.mavenPublish)
+
+}
+
+group = "com.github.himym1"
+version = "1.0.0"
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            create<MavenPublication>("release") {
+                groupId = (group.toString())
+                artifactId = "AndroidCoreKit"
+                version = version
+            }
+        }
+    }
 }
 
 android {
@@ -8,11 +27,8 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.himym.androidcorekit"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
