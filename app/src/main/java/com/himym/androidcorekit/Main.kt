@@ -11,4 +11,8 @@ class Test {
     fun test() {
         println("test")
     }
+
+    fun test1() {
+        println("test1")
+    }
 }
