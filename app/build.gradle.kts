@@ -1,34 +1,18 @@
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
     kotlin("kapt")
-    id("maven-publish")
-}
-
-group = "com.github.himym1"
-version = "1.0.5"
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
-                groupId = group.toString()
-                artifactId = "CoreKit"
-                version = version
-            }
-        }
-    }
 }
 
 android {
-    namespace = "com.himym.corekit"
-    compileSdk = 34
+    namespace = "com.himym.main"
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
-
+        versionCode = 1
+        versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -57,10 +41,6 @@ android {
 }
 
 dependencies {
+    implementation(project(":corekit"))
 
-    api(libs.bundles.appcompat)
-    api(libs.bundles.lifecycle)
-    api(libs.bundles.ui)
-    api(libs.bundles.koinBundle)
-    api(libs.bundles.networkAndStorage)
 }

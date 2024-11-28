@@ -18,6 +18,9 @@ cardviewVersion = "1.0.0"
 koinVersion = "3.5.3"
 ksp = "2.0.21-1.0.27"
 immersionbar = "3.2.2"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
 
 [libraries]
 
@@ -58,6 +61,9 @@ mmkv = { group = "com.tencent", name = "mmkv-static", version.ref = "mmkvVersion
 # 依赖注入
 koin = { group = "io.insert-koin", name = "koin-android", version.ref = "koinVersion" }
 koinCompat = { group = "io.insert-koin", name = "koin-android-compat", version.ref = "koinVersion" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [plugins]
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
