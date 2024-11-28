@@ -1,13 +1,13 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.maven.publish)
     alias(libs.plugins.ksp)
     kotlin("kapt")
+    id("maven-publish")
 }
 
 group = "com.github.himym1"
-version = "1.0.4"
+version = "1.0.5"
 
 afterEvaluate {
     publishing {
