@@ -6,6 +6,9 @@ package com.himym.androidcorekit
  * @date: 2024/11/27
  * @desc:
  */
-class Main {
+class Test {
 
+    fun test() {
+        println("test")
+    }
 }
