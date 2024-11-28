@@ -16,7 +16,7 @@ import com.himym.corekit.R
 
 /**
  * @author himym.
- * @description
+ * @description Request status view
  */
 open class RequestStatusView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
