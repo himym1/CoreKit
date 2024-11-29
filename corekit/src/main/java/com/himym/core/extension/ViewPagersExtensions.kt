@@ -7,25 +7,26 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 /**
  * @author himym.
- * @description Extensions For ViewPager and ViewPager2
+ * @description ViewPager 扩展方法
  */
-inline fun ViewPager.doOnPageSelected(crossinline action: (Int) -> Unit) =
+
+fun ViewPager.onPageSelected(action: (Int) -> Unit) =
     addPageChangeListener(onPageSelected = action)
 
-inline fun ViewPager.doOnScroller(crossinline action: (Int, Float, Int) -> Unit) =
+fun ViewPager.onPageScrolled(action: (Int, Float, Int) -> Unit) =
     addPageChangeListener(onPageScrolled = action)
 
-inline fun ViewPager.doOnScrollStateChanged(crossinline action: (Int) -> Unit) =
+fun ViewPager.onScrollStateChanged(action: (Int) -> Unit) =
     addPageChangeListener(onPageScrollStateChanged = action)
 
-inline fun ViewPager.addPageChangeListener(
-    crossinline onPageScrolled: (Int, Float, Int) -> Unit = { _, _, _ -> },
-    crossinline onPageSelected: (Int) -> Unit = {},
-    crossinline onPageScrollStateChanged: (Int) -> Unit = {}
+private fun ViewPager.addPageChangeListener(
+    onPageScrolled: (Int, Float, Int) -> Unit = { _, _, _ -> },
+    onPageSelected: (Int) -> Unit = {},
+    onPageScrollStateChanged: (Int) -> Unit = {}
 ): ViewPager.OnPageChangeListener {
     val listener = object : ViewPager.OnPageChangeListener {
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-            onPageScrolled(position, positionOffset, positionOffsetPixels)
+        override fun onPageScrolled(position: Int, offset: Float, offsetPixels: Int) {
+            onPageScrolled(position, offset, offsetPixels)
         }
 
         override fun onPageSelected(position: Int) {
@@ -40,31 +41,29 @@ inline fun ViewPager.addPageChangeListener(
     return listener
 }
 
-///////////////////////////////////////
-// Extensions for ViewPager2 /////////
-/////////////////////////////////////
+// ViewPager2 Extensions
 fun ViewPager2.bindWithTabLayout(
     tabLayout: TabLayout,
-    bind: (TabLayout.Tab, Int) -> Unit = { _, _ -> }
-) = TabLayoutMediator(tabLayout, this) { tab, position -> bind(tab, position) }
+    bind: (TabLayout.Tab, Int) -> Unit
+) = TabLayoutMediator(tabLayout, this) { tab, position -> bind(tab, position) }.attach()
 
-inline fun ViewPager2.doOnPageSelected(crossinline action: (Int) -> Unit) =
+fun ViewPager2.onPageSelected(action: (Int) -> Unit) =
     registerPageChangeCallback(onPageSelected = action)
 
-inline fun ViewPager2.doOnScroller(crossinline action: (Int, Float, Int) -> Unit) =
+fun ViewPager2.onPageScrolled(action: (Int, Float, Int) -> Unit) =
     registerPageChangeCallback(onPageScrolled = action)
 
-inline fun ViewPager2.doOnScrollStateChanged(crossinline action: (Int) -> Unit) =
+fun ViewPager2.onScrollStateChanged(action: (Int) -> Unit) =
     registerPageChangeCallback(onPageScrollStateChanged = action)
 
-inline fun ViewPager2.registerPageChangeCallback(
-    crossinline onPageScrolled: (Int, Float, Int) -> Unit = { _, _, _ -> },
-    crossinline onPageSelected: (Int) -> Unit = {},
-    crossinline onPageScrollStateChanged: (Int) -> Unit = {}
+private fun ViewPager2.registerPageChangeCallback(
+    onPageScrolled: (Int, Float, Int) -> Unit = { _, _, _ -> },
+    onPageSelected: (Int) -> Unit = {},
+    onPageScrollStateChanged: (Int) -> Unit = {}
 ): ViewPager2.OnPageChangeCallback {
     val callback = object : ViewPager2.OnPageChangeCallback() {
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-            onPageScrolled(position, positionOffset, positionOffsetPixels)
+        override fun onPageScrolled(position: Int, offset: Float, offsetPixels: Int) {
+            onPageScrolled(position, offset, offsetPixels)
         }
 
         override fun onPageSelected(position: Int) {
@@ -78,8 +77,3 @@ inline fun ViewPager2.registerPageChangeCallback(
     registerOnPageChangeCallback(callback)
     return callback
 }
-
-fun ViewPager2.unregisterPageChangeCallback(callback: ViewPager2.OnPageChangeCallback) {
-    unregisterOnPageChangeCallback(callback)
-}
-

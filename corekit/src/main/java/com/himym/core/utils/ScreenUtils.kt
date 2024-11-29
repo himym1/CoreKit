@@ -13,7 +13,7 @@ import android.util.TypedValue
 
 /**
  * @author himym.
- * @description
+ * @description 屏幕工具类
  */
 
 @Deprecated(message = "replaced by Context.screenWidth", replaceWith = ReplaceWith("Context.screenWidth"))

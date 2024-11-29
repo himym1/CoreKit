@@ -17,8 +17,8 @@ import androidx.fragment.app.FragmentManager
 import com.himym.core.anno.DialogConfig
 import com.himym.core.anno.DialogSizeType
 import com.himym.core.entity.DialogDisplayConfig
-import com.himym.core.extension.d
 import com.himym.core.helper.KLogger
+import com.himym.core.helper.ePrint
 import com.himym.core.listener.OnDialogFragmentCancelListener
 import com.himym.core.listener.OnDialogFragmentDismissListener
 import com.himym.core.utils.screenHeight
@@ -126,7 +126,9 @@ abstract class BaseDialogFragment<VB : ViewDataBinding> : DialogFragment(), Coro
         super.onDestroy()
         mBinding.unbind()
         cancel()
-        "HomeFragment BaseDialogFragment cancel".d()
+        ePrint {
+            "HomeFragment BaseDialogFragment cancel"
+        }
     }
 
     override fun onDismiss(dialog: DialogInterface) {

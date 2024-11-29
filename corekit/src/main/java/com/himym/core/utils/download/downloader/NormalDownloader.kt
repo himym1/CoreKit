@@ -18,7 +18,7 @@ import java.text.DecimalFormat
 
 /**
  * @author himym.
- * @description normal downloader for download file
+ * @description 普通下载器
  */
 internal class NormalDownloader : AbsDownloader() {
     private var alreadyDownloaded = false

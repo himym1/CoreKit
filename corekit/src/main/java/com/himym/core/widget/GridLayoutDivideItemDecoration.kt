@@ -11,7 +11,7 @@ import kotlin.math.ceil
 
 /**
  * @author himym.
- * @description only for GridLayoutManager
+ * @description GridLayoutManager分割线，提供横向和纵向的分割线支持
  */
 class GridLayoutDivideItemDecoration(context: Context) : RecyclerView.ItemDecoration() {
 

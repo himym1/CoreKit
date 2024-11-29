@@ -8,7 +8,7 @@ import com.himym.core.helper.CenterDrawableHelper
 
 /**
  * @author himym.
- * @description
+ * @description 图文居中的TextView
  */
 open class CenterDrawableTextView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

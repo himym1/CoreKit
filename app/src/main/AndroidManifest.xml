@@ -33,6 +33,10 @@
 
         </activity>
 
+        <activity android:name="com.himym.core.ui.SecondActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"/>
+
     </application>
 
 </manifest>

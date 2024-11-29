@@ -20,7 +20,7 @@ import java.text.DecimalFormat
 
 /**
  * @author himym.
- * @description range downloader for download file
+ * @description 断点续传下载器
  */
 internal class RangeDownloader : AbsDownloader() {
     private var alreadyDownload = false

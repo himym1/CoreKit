@@ -8,6 +8,11 @@ import okhttp3.Response
 import okhttp3.internal.toLongOrDefault
 import java.io.File
 
+/**
+ * @author himym.
+ * @description 下载相关扩展
+ */
+
 fun Response.contentType() = headers["Content-Type"] ?: ""
 
 fun Response.supportRanges() = (code == 206

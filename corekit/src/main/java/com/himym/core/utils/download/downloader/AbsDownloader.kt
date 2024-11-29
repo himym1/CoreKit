@@ -6,7 +6,7 @@ import java.io.File
 
 /**
  * @author himym.
- * @description downloader for download file
+ * @description 下载器抽象基类
  */
 internal abstract class AbsDownloader {
     var onProgressChange: (suspend (Float) -> Unit)? = null

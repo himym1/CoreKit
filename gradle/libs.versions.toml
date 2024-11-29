@@ -17,10 +17,6 @@ mmkvVersion = "1.2.15"
 cardviewVersion = "1.0.0"
 koinVersion = "3.5.3"
 ksp = "2.0.21-1.0.27"
-immersionbar = "3.2.2"
-junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
 
 [libraries]
 
@@ -45,7 +41,6 @@ recyclerView = { group = "androidx.recyclerview", name = "recyclerview", version
 viewpager = { group = "androidx.viewpager", name = "viewpager", version.ref = "viewpagerVersion" }
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2Version" }
 cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardviewVersion" }
-immersionbar = { group = "com.geyifeng.immersionbar", name = "immersionbar", version.ref = "immersionbar" }
 
 # 协程
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesVersion" }
@@ -61,17 +56,12 @@ mmkv = { group = "com.tencent", name = "mmkv-static", version.ref = "mmkvVersion
 # 依赖注入
 koin = { group = "io.insert-koin", name = "koin-android", version.ref = "koinVersion" }
 koinCompat = { group = "io.insert-koin", name = "koin-android-compat", version.ref = "koinVersion" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [plugins]
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-maven-publish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }
-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 
 [bundles]
 
@@ -90,7 +80,7 @@ lifecycle = [
 ]
 
 # 用户界面相关
-ui = ["material", "constraintLayout", "recyclerView", "viewpager", "viewpager2", "cardview", "immersionbar"]
+ui = ["material", "constraintLayout", "recyclerView", "viewpager", "viewpager2", "cardview"]
 
 # 依赖注入相关
 koinBundle = ["koin", "koinCompat"]

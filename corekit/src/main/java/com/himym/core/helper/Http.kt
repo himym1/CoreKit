@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.suspendCancellableCoroutine
 import okhttp3.*
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -20,12 +21,13 @@ import kotlin.coroutines.resumeWithException
 
 /**
  * @author himym.
- * @description
+ * @description Http - 网络请求工具类，支持 GET、POST、PUT、DELETE 请求。
  */
 class Http {
-    val wrapper = OkRequestWrapper()
+    private val wrapper = OkRequestWrapper()
 
     fun url(url: String): Http {
+        check(isValidUrl(url)) { "Invalid URL: $url" }
         wrapper.baseUrl = url
         return this
     }
@@ -50,108 +52,29 @@ class Http {
         return this
     }
 
-    /**
-     * type T:
-     * okhttp3.Response -> response
-     * String -> response.body.string()
-     * custom pojo -> Gson().fromJson(response.body.string(), T::class.kotlin)
-     */
-    inline fun <reified T> onResponse(noinline block: suspend (T?) -> Unit): Http {
-        wrapper.onSuccess = {
-            block(
-                when (T::class.java) {
-                    Response::class.java -> it as? T
-                    String::class.java -> it.checkText() as? T
-                    List::class.java -> throw IllegalArgumentException("call onListResponse() instead")
-                    else -> it.checkResult()
-                }
-            )
-        }
-        return this
-    }
+    suspend fun <T> get(): T? = execute("GET")
+    suspend fun <T> post(): T? = execute("POST")
+    suspend fun <T> put(): T? = execute("PUT")
+    suspend fun <T> delete(): T? = execute("DELETE")
 
-    inline fun <reified T> onListResponse(noinline block: suspend (MutableList<T>) -> Unit): Http {
-        wrapper.onSuccess = { block(it.checkList()) }
-        return this
-    }
-
-    suspend fun get() = req("get")
-
-    suspend fun post() = req("post")
-
-    suspend fun put() = req("put")
-
-    suspend fun delete() = req("delete")
-
-    private suspend fun req(method: String) {
+    private suspend fun <T> execute(method: String): T? {
         wrapper.method = method
-        check(wrapper.baseUrl.matches(urlRegex)) { "Illegal url" }
-        HttpSingle.instance().executeForResult(wrapper)
-    }
-
-    /**
-     * type T:
-     * okhttp3.Response -> response
-     * String -> response.body.string()
-     * custom pojo -> Gson().fromJson(response.body.string(), T::class.kotlin)
-     */
-    @JvmName("getResponse")
-    suspend inline fun <reified T> get(): T? {
-        return when (T::class.java) {
-            Response::class.java -> response("get") as? T
-            String::class.java -> response("get")?.checkText() as? T
-            List::class.java -> throw IllegalArgumentException("call getList() instead")
-            else -> response("get")?.checkResult()
-        }
-    }
-
-    suspend inline fun <reified T> getList(): MutableList<T> = response("get")?.checkList() ?: mutableListOf()
-
-    @JvmName("postResponse")
-    suspend inline fun <reified T> post(): T? {
-        return when (T::class.java) {
-            Response::class.java -> response("post") as? T
-            String::class.java -> response("post")?.checkText() as? T
-            List::class.java -> throw IllegalArgumentException("call postList() instead")
-            else -> response("post")?.checkResult()
-        }
-    }
-
-    suspend inline fun <reified T> postList(): MutableList<T> = response("post")?.checkList() ?: mutableListOf()
-
-    @JvmName("putResponse")
-    suspend inline fun <reified T> put(): T? {
-        return when (T::class.java) {
-            Response::class.java -> response("put") as? T
-            String::class.java -> response("put")?.checkText() as? T
-            List::class.java -> throw IllegalArgumentException("call putList() instead")
-            else -> response("put")?.checkResult()
-        }
-    }
-
-    suspend inline fun <reified T> putList(): MutableList<T> = response("put")?.checkList() ?: mutableListOf()
-
-    @JvmName("deleteResponse")
-    suspend inline fun <reified T> delete(): T? {
-        return when (T::class.java) {
-            Response::class.java -> response("delete") as? T
-            String::class.java -> response("delete")?.checkText() as? T
-            List::class.java -> throw IllegalArgumentException("call deleteList() instead")
-            else -> response("delete")?.checkResult()
-        }
-    }
-
-    suspend inline fun <reified T> deleteList(): MutableList<T> = response("delete")?.checkList() ?: mutableListOf()
-
-    suspend fun response(method: String): Response? {
-        wrapper.method = method
-        check(wrapper.baseUrl.matches(urlRegex)) { "Illegal url" }
-        try {
-            return HttpSingle.instance().enqueueForResult(wrapper)
+        return try {
+            HttpSingle.instance().enqueueForResult(wrapper) as T
         } catch (e: Exception) {
             wrapper.onFail(e)
+            null
         }
-        return null
+    }
+
+    companion object {
+        private fun isValidUrl(url: String): Boolean {
+            return try {
+                url.toHttpUrlOrNull() != null
+            } catch (e: Exception) {
+                false
+            }
+        }
     }
 }
 

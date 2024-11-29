@@ -5,7 +5,7 @@ import com.himym.core.listener.MultiLayoutImp
 
 /**
  * @author himym.
- * @description
+ * @description base multi layout adapter
  */
 abstract class BaseMultiLayoutAdapter(
     dataList: MutableList<MultiLayoutImp>? = null

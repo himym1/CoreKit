@@ -17,7 +17,12 @@ import androidx.annotation.RequiresApi
 
 /**
  * @author himym.
- * @description
+ * @description App 信息与操作工具类
+ */
+
+/**
+ * 获取 App 名称
+ * @return App 名称
  */
 fun Context.getAppName(): String = try {
     val packageInfo = packageManager.getPackageInfo(packageName, 0)
@@ -28,6 +33,10 @@ fun Context.getAppName(): String = try {
     ""
 }
 
+/**
+ * 获取 App 版本名称
+ * @return App 版本名称
+ */
 fun Context.getAppVersionName(): String = try {
     val packageInfo = packageManager.getPackageInfo(packageName, 0)
     packageInfo?.versionName ?: ""
@@ -36,6 +45,10 @@ fun Context.getAppVersionName(): String = try {
     ""
 }
 
+/**
+ * 获取 App 版本号
+ * @return App 版本号
+ */
 fun Context.getAppVersionCode(): Long =
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) getLongAppVersion() else getAppIntVersion().toLong()
 
@@ -54,6 +67,11 @@ private fun Context.getLongAppVersion(): Long = try {
     0L
 }
 
+/**
+ * 启动 App
+ * @param packageName App 包名
+ * @param fail 启动失败回调
+ */
 fun Context.starApp(packageName: String, fail: () -> Unit) =
     try {
         startActivity(Intent(Intent.ACTION_MAIN).apply {
@@ -66,6 +84,11 @@ fun Context.starApp(packageName: String, fail: () -> Unit) =
         fail()
     }
 
+/**
+ * 获取 APK 图标
+ * @param apkPath APK 路径
+ * @return APK 图标
+ */
 fun Context.apkIconByDrawable(apkPath: String): Drawable? {
     // 获取 APK 的包信息，若为 null 则返回 null
     val packageInfo = packageManager.getPackageArchiveInfo(apkPath, PackageManager.GET_ACTIVITIES)
@@ -80,6 +103,11 @@ fun Context.apkIconByDrawable(apkPath: String): Drawable? {
     return null
 }
 
+/**
+ * 获取 APK 图标
+ * @param pkgName APK 包名
+ * @return APK 图标
+ */
 fun Context.appIconByDrawable(pkgName: String): Drawable? {
     try {
         packageManager.let {
@@ -90,6 +118,11 @@ fun Context.appIconByDrawable(pkgName: String): Drawable? {
     }
 }
 
+/**
+ * 获取 APK 图标
+ * @param pkgName APK 包名
+ * @return APK 图标
+ */
 fun Context.appIconByBitmap(pkgName: String): Bitmap? = packageManager.let { pm ->
     try {
         val drawable = pm.getApplicationIcon(pkgName)

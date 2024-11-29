@@ -2,11 +2,11 @@ package com.himym.core.anno
 
 /**
  * @author himym.
- * @description
+ * @description TextView Drawable 位置
  */
 sealed class TextViewDrawableOrientation(val value: Int) {
-    object START : TextViewDrawableOrientation(0)
-    object TOP : TextViewDrawableOrientation(1)
-    object END : TextViewDrawableOrientation(2)
-    object BOTTOM : TextViewDrawableOrientation(3)
+    data object START : TextViewDrawableOrientation(0)
+    data object TOP : TextViewDrawableOrientation(1)
+    data object END : TextViewDrawableOrientation(2)
+    data object BOTTOM : TextViewDrawableOrientation(3)
 }

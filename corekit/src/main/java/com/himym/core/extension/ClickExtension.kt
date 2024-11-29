@@ -10,6 +10,9 @@ import com.himym.corekit.R
  */
 internal var DEFAULT_DEBOUNCE_TIME = 500L
 
+/**
+ * 为 View 添加防抖动点击事件
+ */
 fun View.setOnDebounceClickListener(
     duration: Long = DEFAULT_DEBOUNCE_TIME,
     debounceCall: (View?) -> Unit

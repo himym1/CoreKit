@@ -15,7 +15,7 @@ import java.util.*
 
 /**
  * @author himym.
- * @description
+ * @description GlobalExceptionHelper - 全局异常捕获处理器
  */
 class GlobalExceptionHelper private constructor(
     private val context: Context,

@@ -10,7 +10,12 @@ import androidx.core.view.ViewCompat
 
 /**
  * @author himym.
- * @description
+ * @description 状态栏工具类
+ */
+
+/**
+ * 设置状态栏颜色。
+ * @param color 颜色值
  */
 @Suppress("DEPRECATION")
 fun Activity.setColorForStatusBar(@ColorInt color: Int) {
@@ -29,6 +34,10 @@ fun Activity.setColorForStatusBar(@ColorInt color: Int) {
     }
 }
 
+/**
+ * 透明状态栏。
+ * @param contentToStatusBar 是否将内容延伸到状态栏
+ */
 @Suppress("DEPRECATION")
 fun Activity.translucentStatusBar(contentToStatusBar: Boolean) {
     window.let {
@@ -37,7 +46,8 @@ fun Activity.translucentStatusBar(contentToStatusBar: Boolean) {
             if (contentToStatusBar) {
                 it.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
                 it.statusBarColor = Color.TRANSPARENT
-                it.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                it.decorView.systemUiVisibility =
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             } else {
                 it.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
                 it.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
@@ -55,8 +65,10 @@ fun Activity.translucentStatusBar(contentToStatusBar: Boolean) {
     }
 }
 
+/**
+ * 设置状态栏亮式
+ */
 @Suppress("DEPRECATION")
-@TargetApi(Build.VERSION_CODES.M)
 fun Activity.setStatusBarLightMode() {
     actionsByR({
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
@@ -68,8 +80,10 @@ fun Activity.setStatusBarLightMode() {
     })
 }
 
+/**
+ * 设置状态栏暗式
+ */
 @Suppress("DEPRECATION")
-@TargetApi(Build.VERSION_CODES.M)
 fun Activity.setStatusBarDarkMode() {
     actionsByR({
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE

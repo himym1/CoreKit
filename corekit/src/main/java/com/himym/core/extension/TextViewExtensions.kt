@@ -2,43 +2,31 @@ package com.himym.core.extension
 
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.util.Log
 import android.widget.TextView
 import com.himym.core.anno.TextViewDrawableOrientation
 
 /**
  * @author himym.
- * @description
+ * @description TextView 扩展方法
  */
 
-fun TextView.drawableStart(drawableRes: Int? = null, size: Int? = null, drawablePadding: Int? = null) =
-    appendDrawable(drawableRes, size, drawablePadding, TextViewDrawableOrientation.START)
+/** 设置 Drawable */
+fun TextView.setDrawable(
+    orientation: TextViewDrawableOrientation,
+    drawableRes: Int? = null,
+    path: String? = null,
+    size: Int? = null,
+    drawablePadding: Int? = null
+) {
+    appendDrawable(drawableRes, size, drawablePadding, orientation)
+    appendDrawable(path, size, drawablePadding, orientation)
+}
 
-fun TextView.drawableStart(path: String? = null, size: Int? = null, drawablePadding: Int? = null) =
-    appendDrawable(path, size, drawablePadding, TextViewDrawableOrientation.START)
-
-fun TextView.drawableTop(drawableRes: Int? = null, size: Int? = null, drawablePadding: Int? = null) =
-    appendDrawable(drawableRes, size, drawablePadding, TextViewDrawableOrientation.TOP)
-
-fun TextView.drawableTop(path: String? = null, size: Int? = null, drawablePadding: Int? = null) =
-    appendDrawable(path, size, drawablePadding, TextViewDrawableOrientation.TOP)
-
-fun TextView.drawableEnd(drawableRes: Int? = null, size: Int? = null, drawablePadding: Int? = null) =
-    appendDrawable(drawableRes, size, drawablePadding, TextViewDrawableOrientation.END)
-
-fun TextView.drawableEnd(path: String? = null, size: Int? = null, drawablePadding: Int? = null) =
-    appendDrawable(path, size, drawablePadding, TextViewDrawableOrientation.END)
-
-fun TextView.drawableBottom(drawableRes: Int? = null, size: Int? = null, drawablePadding: Int? = null) =
-    appendDrawable(drawableRes, size, drawablePadding, TextViewDrawableOrientation.BOTTOM)
-
-fun TextView.drawableBottom(path: String? = null, size: Int? = null, drawablePadding: Int? = null) =
-    appendDrawable(path, size, drawablePadding, TextViewDrawableOrientation.BOTTOM)
-
-///////////////////////////////////////////
-// Set Drawable For TextView /////////////
-/////////////////////////////////////////
+/** 内部实现：根据资源 ID 设置 Drawable */
 internal fun TextView.appendDrawable(
-    drawableRes: Int?, size: Int? = null,
+    drawableRes: Int?,
+    size: Int? = null,
     drawablePadding: Int? = null,
     orientation: TextViewDrawableOrientation = TextViewDrawableOrientation.START
 ) {
@@ -52,11 +40,16 @@ internal fun TextView.appendDrawable(
             setBounds(0, 0, size ?: intrinsicWidth, size ?: intrinsicHeight)
         }
 
-    setCompoundDrawables(tarCompoundDrawables[0], tarCompoundDrawables[1], tarCompoundDrawables[2], tarCompoundDrawables[3])
+    setCompoundDrawables(
+        tarCompoundDrawables[0], tarCompoundDrawables[1],
+        tarCompoundDrawables[2], tarCompoundDrawables[3]
+    )
 }
 
+/** 内部实现：根据文件路径设置 Drawable */
 internal fun TextView.appendDrawable(
-    path: String? = null, size: Int? = null,
+    path: String?,
+    size: Int? = null,
     drawablePadding: Int? = null,
     orientation: TextViewDrawableOrientation = TextViewDrawableOrientation.START
 ) {
@@ -66,9 +59,19 @@ internal fun TextView.appendDrawable(
 
     tarCompoundDrawables[orientation.value] =
         if (path.isNullOrBlank()) null
-        else BitmapDrawable(context.resources, BitmapFactory.decodeFile(path)).apply {
-            setBounds(0, 0, size ?: intrinsicWidth, size ?: intrinsicHeight)
+        else {
+            val bitmap = BitmapFactory.decodeFile(path)
+            if (bitmap == null) {
+                Log.e("TextViewExtension", "Failed to decode file: $path")
+                return
+            }
+            BitmapDrawable(context.resources, bitmap).apply {
+                setBounds(0, 0, size ?: intrinsicWidth, size ?: intrinsicHeight)
+            }
         }
 
-    setCompoundDrawables(tarCompoundDrawables[0], tarCompoundDrawables[1], tarCompoundDrawables[2], tarCompoundDrawables[3])
+    setCompoundDrawables(
+        tarCompoundDrawables[0], tarCompoundDrawables[1],
+        tarCompoundDrawables[2], tarCompoundDrawables[3]
+    )
 }

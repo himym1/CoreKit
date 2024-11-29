@@ -4,13 +4,13 @@ import androidx.annotation.IntDef
 
 /**
  * @author himym.
- * @description
+ * @description Dialog 尺寸类型
  */
 @IntDef(value = [DialogSizeType.FILL_SIZE, DialogSizeType.WRAP_SIZE])
 @Retention(AnnotationRetention.SOURCE)
 annotation class DialogSizeType {
     companion object {
-        const val FILL_SIZE = 0
-        const val WRAP_SIZE = 1
+        const val FILL_SIZE = 0 // 全屏
+        const val WRAP_SIZE = 1 // 包裹
     }
 }

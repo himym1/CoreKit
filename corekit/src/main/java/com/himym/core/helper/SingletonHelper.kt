@@ -2,7 +2,7 @@ package com.himym.core.helper
 
 /**
  * @author himym.
- * @description quick create singleton with single argument, T is your class type and AR is your argument type
+ * @description SingletonHelper - 提供单例模式的辅助类，支持无参、单参、双参、三参构造函数。
  */
 open class SingletonHelperArg0<T : Any>(creator: () -> T) {
     private var sCreator: (() -> T)? = creator

@@ -14,41 +14,60 @@ import com.himym.core.base.BaseApplication.Companion.appContext
 
 /**
  * @author himym.
- * @description Resource extension
+ * @description 资源扩展函数
  */
-fun Context.stringValue(@StringRes strRes: Int) = resources.getString(strRes)
-
-fun Context.drawableValue(@DrawableRes drawRes: Int) =
-    ContextCompat.getDrawable(this, drawRes) ?: ColorDrawable(Color.TRANSPARENT)
-
-fun Context.colorValue(@ColorRes colorRes: Int) = ContextCompat.getColor(this, colorRes)
-
-fun Context.dimenValue(@DimenRes dimenRes: Int) = resources.getDimension(dimenRes)
 
 /**
- * example: get an drawable resource ic_launcher.png from drawable direction
- *
- * ```kotlin
- *    val iconLauncher = getResourceFromRawDirectory("ic_launcher.png", "drawable")
- * ```
+ * 获取字符串资源。
+ */
+fun Context.stringValue(@StringRes strRes: Int): String = resources.getString(strRes)
+
+/**
+ * 获取 Drawable 资源。
+ * 如果资源为 null，则返回透明的 ColorDrawable。
+ */
+fun Context.drawableValue(@DrawableRes drawRes: Int): Drawable =
+    ContextCompat.getDrawable(this, drawRes) ?: ColorDrawable(Color.TRANSPARENT)
+
+/**
+ * 获取颜色资源。
+ */
+fun Context.colorValue(@ColorRes colorRes: Int): Int =
+    ContextCompat.getColor(this, colorRes)
+
+/**
+ * 获取维度资源值（以 px 为单位）。
+ */
+fun Context.dimenValue(@DimenRes dimenRes: Int): Float =
+    resources.getDimension(dimenRes)
+
+/**
+ * 根据资源名称和目录获取资源 ID。
+ * 使用场景：动态加载资源。
  */
 @SuppressLint("DiscouragedApi")
-fun Context.getResourceFromRawDirectory(resourceName: String, directoryName: String) =
+fun Context.getResourceFromRawDirectory(resourceName: String, directoryName: String): Int =
     resources.getIdentifier(resourceName, directoryName, packageName)
 
+/**
+ * 全局资源访问：获取字符串值。
+ */
+fun @receiver:StringRes Int.stringValue(): String = appContext.getString(this)
 
-fun @receiver:StringRes Int.stringValue(): String {
-    return appContext.getString(this)
-}
+/**
+ * 全局资源访问：获取 Drawable。
+ */
+fun @receiver:DrawableRes Int.drawableValue(): Drawable =
+    ContextCompat.getDrawable(appContext, this) ?: ColorDrawable(Color.TRANSPARENT)
 
-fun @receiver:DrawableRes Int.drawableValue(): Drawable {
-    return ContextCompat.getDrawable(appContext, this) ?: ColorDrawable(Color.TRANSPARENT)
-}
+/**
+ * 全局资源访问：获取颜色值。
+ */
+fun @receiver:ColorRes Int.colorValue(): Int =
+    ContextCompat.getColor(appContext, this)
 
-fun @receiver:ColorRes Int.colorValue(): Int {
-    return ContextCompat.getColor(appContext, this)
-}
-
-fun @receiver:DimenRes Int.dimenValue(): Float {
-    return appContext.resources.getDimension(this)
-}
+/**
+ * 全局资源访问：获取维度值。
+ */
+fun @receiver:DimenRes Int.dimenValue(): Float =
+    appContext.resources.getDimension(this)

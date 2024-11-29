@@ -2,23 +2,35 @@ package com.himym.core.utils
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
-import android.os.Build
 import android.webkit.MimeTypeMap
 import androidx.core.content.FileProvider
 import java.io.File
 
 /**
  * @author himym.
- * @description
+ * @description 文件打开工具类
  */
+
 val DEFAULT_MIMETYPE = "*/*"
 
+/**
+ * 根据文件名获取 MIME 类型
+ * @param fileName 文件名
+ * @return MIME 类型
+ */
 fun getMimeTypeByFile(fileName: String): String {
     val extension = if (fileName.contains(".")) fileName.split(".").last() else ""
     return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension) ?: DEFAULT_MIMETYPE
 }
 
+/**
+ * 根据 MIME 类型打开文件
+ * @param file 文件
+ * @param authority FileProvider authority
+ * @param viewEmptyFile 是否查看空文件
+ * @param handleUnknownBySystem 是否由系统处理未知 MIME 类型
+ * @param unknownMimeType 未知 MIME 类型处理
+ */
 fun Context.openFileByMimeType(
     file: File, authority: String? = null,
     viewEmptyFile: Boolean = true,
@@ -36,11 +48,15 @@ fun Context.openFileByMimeType(
     openFileByMimeType(file, mimeType, authority)
 }
 
+/**
+ * 根据 MIME 类型打开文件
+ * @param file 文件
+ * @param mimeType MIME 类型
+ * @param authority FileProvider authority
+ */
 fun Context.openFileByMimeType(file: File, mimeType: String, authority: String? = null) {
     try {
-        val uri = if (Build.VERSION.SDK_INT > 23)
-            FileProvider.getUriForFile(this, authority ?: "$packageName.fileprovider", file)
-        else Uri.fromFile(file)
+        val uri = FileProvider.getUriForFile(this, authority ?: "$packageName.fileprovider", file)
 
         startActivity(Intent(Intent.ACTION_VIEW).apply {
             setDataAndType(uri, mimeType)

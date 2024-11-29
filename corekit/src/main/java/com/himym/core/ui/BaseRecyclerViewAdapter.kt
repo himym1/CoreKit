@@ -16,7 +16,7 @@ import com.himym.core.listener.OnRecyclerItemLongClickListener
 
 /**
  * @author himym.
- * @description
+ * @description base recycler view adapter
  */
 abstract class BaseRecyclerViewAdapter<T : Any>(
     dataList: List<T>? = null

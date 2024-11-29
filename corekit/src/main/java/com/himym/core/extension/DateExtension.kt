@@ -1,13 +1,16 @@
 package com.himym.core.extension
 
+import android.annotation.SuppressLint
 import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * author: Outs3
- * e-mail: 3.3nosekai@gmail.com
- * date: 2020/12/5 9:42
- * desc:
+ * @author himym.
+ * @description 日期扩展函数
+ */
+
+/**
+ * 时间戳转化为文字
  */
 fun Long.toText(): String {
     val second: Long = 1000
@@ -70,8 +73,10 @@ fun Long.datetimeWithoutSecond(): String = this.format("yyyy-MM-dd HH:mm")
 
 fun Long.datetimeWithMillis(): String = this.format("yyyy-MM-dd HH:mm:ss SSS")
 
+@SuppressLint("SimpleDateFormat")
 fun String.format(time: Long) = SimpleDateFormat(this).format(time)
 
+@SuppressLint("SimpleDateFormat")
 fun Long.format(pattern: String) = SimpleDateFormat(pattern).format(Date(this))
 
 fun String.parseDate(pattern: String): Long = SimpleDateFormat(pattern).parse(this).time

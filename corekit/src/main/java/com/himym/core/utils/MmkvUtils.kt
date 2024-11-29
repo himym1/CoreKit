@@ -5,7 +5,7 @@ import com.tencent.mmkv.MMKV
 
 /**
  * @author himym.
- * @description
+ * @description MMKV 工具类
  */
 
 private fun defaultMmkv(multiProcess: Boolean) =

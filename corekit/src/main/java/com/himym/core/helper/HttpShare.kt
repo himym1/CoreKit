@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 
 /**
  * @author himym.
- * @description
+ * @description HttpShare - 网络请求工具类，支持 GET、POST、PUT、DELETE 请求。
  */
 internal val urlRegex = Regex("(http|https)?://(\\S)+")
 

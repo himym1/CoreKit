@@ -1,17 +1,16 @@
 package com.himym.core.extension
 
 /**
- * author: Outs3
- * e-mail: 3.3nosekai@gmail.com
- * date: 2021/4/2 15:54
- * desc:
+ * @author himym.
+ * @description 异常扩展函数
  */
+
 fun String.throwRuntime(): Unit = throw RuntimeException(this)
 
 fun tryWithoutThrow(action: () -> Unit) {
     try {
         action()
-    } catch (e: Throwable) {
+    } catch (_: Throwable) {
     }
 }
 
@@ -19,7 +18,7 @@ fun <T> tryOr(print: Boolean = false, action: () -> T): T? = try {
     action()
 } catch (e: Throwable) {
     if (print) {
-        e.d()
+        e.printStackTrace()
     }
     null
 }

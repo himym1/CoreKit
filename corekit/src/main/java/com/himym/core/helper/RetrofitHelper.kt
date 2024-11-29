@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 
 /**
  * @author himym.
- * @description
+ * @description RetrofitHelper
  */
 class RetrofitHelper private constructor() {
     companion object : SingletonHelperArg0<RetrofitHelper>(::RetrofitHelper)

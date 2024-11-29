@@ -9,7 +9,7 @@ import androidx.databinding.ViewDataBinding
 
 /**
  * @author himym.
- * @description
+ * @description DataBinding 扩展函数
  */
 fun <T : ViewDataBinding> Int.layoutToDataBinding(
     context: Context, parent: ViewGroup? = null, attached: Boolean = false

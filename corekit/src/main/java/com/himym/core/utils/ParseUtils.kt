@@ -13,7 +13,7 @@ import java.lang.reflect.Type
 
 /**
  * @author himym.
- * @description
+ * @description 解析工具类
  */
 class ParseUtils {
 
