@@ -61,6 +61,5 @@ dependencies {
     api(libs.bundles.appcompat)
     api(libs.bundles.lifecycle)
     api(libs.bundles.ui)
-    api(libs.bundles.koinBundle)
     api(libs.bundles.networkAndStorage)
 }

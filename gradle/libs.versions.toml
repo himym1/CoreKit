@@ -15,7 +15,6 @@ retrofitVersion = "2.11.0"
 okloggerVersion = "5.0.0-alpha.4"
 mmkvVersion = "1.2.15"
 cardviewVersion = "1.0.0"
-koinVersion = "3.5.3"
 ksp = "2.0.21-1.0.27"
 
 [libraries]
@@ -53,10 +52,6 @@ ok-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor",
 # 存储
 mmkv = { group = "com.tencent", name = "mmkv-static", version.ref = "mmkvVersion" }
 
-# 依赖注入
-koin = { group = "io.insert-koin", name = "koin-android", version.ref = "koinVersion" }
-koinCompat = { group = "io.insert-koin", name = "koin-android-compat", version.ref = "koinVersion" }
-
 [plugins]
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -81,9 +76,6 @@ lifecycle = [
 
 # 用户界面相关
 ui = ["material", "constraintLayout", "recyclerView", "viewpager", "viewpager2", "cardview"]
-
-# 依赖注入相关
-koinBundle = ["koin", "koinCompat"]
 
 # 网络与存储相关
 networkAndStorage = ["coroutines-android", "retrofit", "retrofit-gson", "ok-interceptor", "mmkv"]
