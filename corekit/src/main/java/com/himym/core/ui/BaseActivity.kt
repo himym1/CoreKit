@@ -3,12 +3,11 @@ package com.himym.core.ui
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.ViewDataBinding
+import androidx.viewbinding.ViewBinding
 import com.himym.core.anno.ActivityConfig
 import com.himym.core.anno.StatusBarTextColorMode
 import com.himym.core.anno.WindowState
 import com.himym.core.extension.hideStatusBar
-import com.himym.core.extension.layoutToDataBinding
 import com.himym.core.extension.setStatusBarColor
 import com.himym.core.extension.showStatusBar
 import com.himym.core.helper.ActivityStackManager
@@ -20,22 +19,26 @@ import com.himym.core.utils.translucentStatusBar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import java.lang.reflect.ParameterizedType
 
 /**
  * @author himym.
- * @description base activity
+ * @description BaseActivity
  */
-abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),
+abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity(),
     CoroutineScope by MainScope(), KLogger {
 
-    protected val mBinding: VB by lazy { layoutId().layoutToDataBinding(this) }
+    protected lateinit var mBinding: VB
     protected val mActivityConfig by lazy<ActivityConfig?> { javaClass.getAnnotation(ActivityConfig::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityStackManager.addActivity(this)
 
-        mBinding.lifecycleOwner = this
+        // 使用反射自动生成 ViewBinding 实例
+        mBinding = inflateViewBinding()
+        setContentView(mBinding.root)
+
         initStatusBar()
         listenFlowEvents()
         listenFlowStates()
@@ -43,16 +46,20 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),
         bindToDBV()
     }
 
+    /**
+     * 利用反射绑定 ViewBinding
+     */
+    @Suppress("UNCHECKED_CAST")
+    private fun inflateViewBinding(): VB {
+        val type = (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0]
+        val clazz = type as Class<VB>
+        val method = clazz.getMethod("inflate", android.view.LayoutInflater::class.java)
+        return method.invoke(null, layoutInflater) as VB
+    }
+
     private fun initStatusBar() {
         mActivityConfig?.let { config ->
-            // 控制状态栏隐藏或显示
-            if (config.hideStatusBar) {
-                hideStatusBar()
-            } else {
-                showStatusBar()
-            }
-
-            // 设置窗口状态栏透明
+            if (config.hideStatusBar) hideStatusBar() else showStatusBar()
             if (config.windowState == WindowState.TRANSPARENT_STATUS_BAR) {
                 window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
                     translucentStatusBar(config.contentUpToStatusBarWhenTransparent)
@@ -60,8 +67,6 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),
             } else if (isValidColorFormat(config.statusBarColorString)) {
                 setStatusBarColor(Color.parseColor(config.statusBarColorString))
             }
-
-            // 设置状态栏文本颜色模式
             if (config.statusBarTextColorMode == StatusBarTextColorMode.DARK) {
                 setStatusBarLightMode()
             } else {
@@ -77,14 +82,10 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),
     override fun onDestroy() {
         super.onDestroy()
         cancel()
-        ePrint {
-            "HomeFragment BaseActivity cancel"
-        }
-        mBinding.unbind()
+        ePrint { "BaseActivity canceled" }
         ActivityStackManager.removeActivity(this)
     }
 
-    abstract fun layoutId(): Int
     abstract fun initActivity(savedInstanceState: Bundle?)
     open fun bindToDBV() {}
     open fun listenFlowStates() {}

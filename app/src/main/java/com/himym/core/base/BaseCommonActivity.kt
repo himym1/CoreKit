@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.databinding.ViewDataBinding
+import androidx.viewbinding.ViewBinding
 import com.himym.core.extension.getStatusBarHeight
 import com.himym.core.extension.setOnDebounceClickListener
 import com.himym.core.ui.BaseActivity
@@ -17,7 +17,7 @@ import com.himym.main.R
  *  create at 2022/10/27 1:06
  *  description: 基础act
  */
-abstract class BaseCommonActivity<VB : ViewDataBinding> : BaseActivity<VB>() {
+abstract class BaseCommonActivity<VB : ViewBinding> : BaseActivity<VB>() {
 
     private lateinit var onBackPressedCallback: OnBackPressedCallback
 

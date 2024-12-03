@@ -53,10 +53,6 @@ class SecondActivity : BaseCommonActivity<ActivitySecondBinding>() {
         }
     }
 
-    override fun layoutId(): Int {
-        return R.layout.activity_second
-    }
-
     override fun initActivity(savedInstanceState: Bundle?) {
         ePrint {
             "name: $name, age: $age user: $user users: $users user1: $user1"

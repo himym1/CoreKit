@@ -1,9 +1,12 @@
 package com.himym.core.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import com.himym.core.entity.User
 import com.himym.core.extension.arg
+import com.himym.core.extension.viewBinding
 import com.himym.core.extension.withArgs
 import com.himym.core.helper.ePrint
 import com.himym.main.R
@@ -40,10 +43,6 @@ class SampleFragment :BaseFragment<FragmentSampleBinding>(){
             KEY_USER to user,
             KEY_USERS to users
         )
-    }
-
-    override fun layoutId(): Int {
-        return R.layout.fragment_sample
     }
 
     override fun initFragment(view: View, savedInstanceState: Bundle?) {

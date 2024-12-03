@@ -4,16 +4,10 @@ import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
-import android.view.WindowManager
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
+import androidx.viewbinding.ViewBinding
 import com.himym.core.anno.DialogConfig
 import com.himym.core.anno.DialogSizeType
 import com.himym.core.entity.DialogDisplayConfig
@@ -27,33 +21,47 @@ import com.himym.corekit.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import java.lang.reflect.ParameterizedType
 
 /**
- * @author himym.
+ * @author
  * @description BaseDialogFragment
  */
-abstract class BaseDialogFragment<VB : ViewDataBinding> : DialogFragment(), CoroutineScope by MainScope(), KLogger {
+abstract class BaseDialogFragment<VB : ViewBinding> : DialogFragment(), CoroutineScope by MainScope(), KLogger {
+
     var onDialogFragmentDismissListener: OnDialogFragmentDismissListener? = null
     var onDialogFragmentCancelListener: OnDialogFragmentCancelListener? = null
 
-    protected lateinit var mBinding: VB
+    private var _binding: VB? = null
+    protected val mBinding get() = _binding!!
+
     private var mSavedState = false
     private val mDialogConfig by lazy<DialogConfig?> { javaClass.getAnnotation(DialogConfig::class.java) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        setStyle(
-            STYLE_NO_FRAME,
-            android.R.style.Theme_Material_Dialog_Alert
-        )
+        setStyle(STYLE_NO_FRAME, android.R.style.Theme_Material_Dialog_Alert)
 
         dialog?.window?.apply {
             requestFeature(Window.FEATURE_NO_TITLE)
             setWindowAnimations(dialogFragmentAnim())
         }
 
-        mBinding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
-        mBinding.lifecycleOwner = this
+        // 使用反射实例化 ViewBinding
+        _binding = inflateViewBinding(inflater, container)
         return mBinding.root
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private fun inflateViewBinding(inflater: LayoutInflater, container: ViewGroup?): VB {
+        val type = (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0]
+        val clazz = type as Class<VB>
+        val inflateMethod = clazz.getMethod(
+            "inflate",
+            LayoutInflater::class.java,
+            ViewGroup::class.java,
+            Boolean::class.javaPrimitiveType
+        )
+        return inflateMethod.invoke(null, inflater, container, false) as VB
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -62,13 +70,10 @@ abstract class BaseDialogFragment<VB : ViewDataBinding> : DialogFragment(), Coro
     }
 
     /**
-     * we suggest use this method to show dialog fragment instead of [show]
+     * 建议使用此方法来显示对话框，而不是直接调用 [show]
      */
     open fun showAllowStateLoss(manager: FragmentManager, tag: String) {
-        if (manager.isStateSaved) return
-
-        if (mSavedState) return
-
+        if (manager.isStateSaved || mSavedState) return
         show(manager, tag)
     }
 
@@ -100,7 +105,12 @@ abstract class BaseDialogFragment<VB : ViewDataBinding> : DialogFragment(), Coro
                     } else "#00000000"
                 }
 
-                DialogDisplayConfig(width, height, mDialogConfig!!.gravity, ColorDrawable(Color.parseColor(backgroundColor)))
+                DialogDisplayConfig(
+                    width,
+                    height,
+                    mDialogConfig!!.gravity,
+                    ColorDrawable(Color.parseColor(backgroundColor))
+                )
             } else {
                 dialogFragmentDisplayConfigs()
             }
@@ -122,13 +132,11 @@ abstract class BaseDialogFragment<VB : ViewDataBinding> : DialogFragment(), Coro
         bindToDBV()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        mBinding.unbind()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
         cancel()
-        ePrint {
-            "HomeFragment BaseDialogFragment cancel"
-        }
+        ePrint { "BaseDialogFragment canceled" }
     }
 
     override fun onDismiss(dialog: DialogInterface) {
@@ -141,12 +149,12 @@ abstract class BaseDialogFragment<VB : ViewDataBinding> : DialogFragment(), Coro
         onDialogFragmentCancelListener?.onDialogFragmentCancel(dialog)
     }
 
-    // self define dialog fragment enter and exit animation
+    // 定义对话框的进入和退出动画
     open fun dialogFragmentAnim() = R.style.DialogPushInOutAnimation
 
-    open fun dialogFragmentDisplayConfigs() = DialogDisplayConfig((requireContext().screenWidth * 0.75).toInt())
-
-    abstract fun layoutId(): Int
+    open fun dialogFragmentDisplayConfigs() = DialogDisplayConfig(
+        (requireContext().screenWidth * 0.75).toInt()
+    )
 
     abstract fun initDialog(view: View, savedInstanceState: Bundle?)
 
@@ -155,26 +163,4 @@ abstract class BaseDialogFragment<VB : ViewDataBinding> : DialogFragment(), Coro
     open fun listenFlowStates() {}
 
     open fun listenFlowEvents() {}
-
-    // self define dialog fragment attributes
-    @Deprecated("use dialogFragmentDisplayConfigs replaced", level = DeprecationLevel.ERROR, replaceWith = ReplaceWith("dialogFragmentDisplayConfigs()"))
-    open fun dialogFragmentAttributes() = dialog?.window?.attributes?.apply {
-        width = (requireActivity().resources.displayMetrics.widthPixels * 0.8f).toInt()
-        height = WindowManager.LayoutParams.WRAP_CONTENT
-        gravity = Gravity.CENTER
-    }
-
-    // self define dialog fragment attributes
-    @Deprecated("use dialogFragmentDisplayConfigs replaced", level = DeprecationLevel.ERROR, replaceWith = ReplaceWith("dialogFragmentDisplayConfigs()"))
-    open fun dialogFragmentParamConfigs() = IntArray(3) {
-        when (it) {
-            0 -> (requireContext().screenWidth * 0.75).toInt()
-            1 -> WindowManager.LayoutParams.WRAP_CONTENT
-            else -> Gravity.CENTER
-        }
-    }
-
-    // self define dialog fragment background
-    @Deprecated("use dialogFragmentDisplayConfigs replaced", level = DeprecationLevel.ERROR, replaceWith = ReplaceWith("dialogFragmentDisplayConfigs()"))
-    open fun dialogFragmentBackground() = ColorDrawable(Color.TRANSPARENT)
 }
