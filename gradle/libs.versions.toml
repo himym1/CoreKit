@@ -1,5 +1,5 @@
 [versions]
-agp = "8.7.2"
+agp = "8.7.3"
 kotlin = "2.0.21"
 coreKtx = "1.15.0"
 lifecycleRuntimeKtx = "2.8.7"
@@ -16,10 +16,16 @@ okloggerVersion = "5.0.0-alpha.4"
 mmkvVersion = "1.2.15"
 cardviewVersion = "1.0.0"
 ksp = "2.0.21-1.0.27"
+hilt = "2.52"
+coilVersion = "2.7.0"
+lottieVersion = "6.5.2"
 
 [libraries]
 
 coreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 
 # 生命周期库
 lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
@@ -41,6 +47,11 @@ viewpager = { group = "androidx.viewpager", name = "viewpager", version.ref = "v
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2Version" }
 cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardviewVersion" }
 
+# 图片处理
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coilVersion" }
+# 动画
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottieVersion" }
+
 # 协程
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesVersion" }
 
@@ -54,6 +65,7 @@ mmkv = { group = "com.tencent", name = "mmkv-static", version.ref = "mmkvVersion
 
 [plugins]
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
@@ -79,3 +91,5 @@ ui = ["material", "constraintLayout", "recyclerView", "viewpager", "viewpager2",
 
 # 网络与存储相关
 networkAndStorage = ["coroutines-android", "retrofit", "retrofit-gson", "ok-interceptor", "mmkv"]
+# 图片处理相关
+imageProcessing = ["coil", "lottie"]

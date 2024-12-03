@@ -3,7 +3,9 @@ package com.himym.core
 import android.app.Application
 import com.himym.core.abs.AbsImageEngine
 import com.himym.core.abs.ImageLoadHelper
+import com.himym.core.config.GlobalConfig
 import com.himym.core.extension.DEFAULT_DEBOUNCE_TIME
+import com.himym.core.helper.CoilEngine
 import com.himym.core.helper.HttpSingle
 import com.himym.core.helper.RequestConfig
 import com.himym.core.helper.RetrofitHelper
@@ -35,6 +37,8 @@ fun Application.startCov(covApp: CovApp.() -> Unit) {
     }
 
     globalLoadEngine(covConfig.loadEngine)
+    // 设置全局的 placeholder
+    GlobalConfig.placeholder = covConfig.placeholder
 }
 
 data class CovApp(
@@ -45,7 +49,8 @@ data class CovApp(
     var client: OkHttpClient? = null,
     var customRetrofitCallAdapterArray: MutableList<CallAdapter.Factory> = mutableListOf(),
     var customRetrofitConverterFactoryArray: MutableList<Converter.Factory> = mutableListOf(GsonConverterFactory.create()),
-    var loadEngine: AbsImageEngine? = null
+    var loadEngine: AbsImageEngine? = CoilEngine(),
+    var placeholder: Int? = null,
 )
 
 ///////////////////////////////

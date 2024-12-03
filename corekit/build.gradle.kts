@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.github.himym1"
-version = "1.0.6"
+version = "1.1.0"
 
 afterEvaluate {
     publishing {
@@ -62,4 +62,5 @@ dependencies {
     api(libs.bundles.lifecycle)
     api(libs.bundles.ui)
     api(libs.bundles.networkAndStorage)
+    api(libs.bundles.imageProcessing)
 }
