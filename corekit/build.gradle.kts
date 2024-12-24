@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.github.himym1"
-version = "1.1.0"
+version = "1.1.1"
 
 afterEvaluate {
     publishing {

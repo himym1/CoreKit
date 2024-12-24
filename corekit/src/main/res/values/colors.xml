@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- 主题色 -->
+    <color name="colorPrimary">#1E90FF</color>
+
+    <!-- 背景色 -->
+    <color name="colorBackground">#1C1C1E</color>
+
+    <!-- 主要文本颜色 -->
+    <color name="colorPrimaryText">#FFFFFF</color>
+
+    <!-- 次要文本颜色 -->
+    <color name="colorSecondaryText">#B0B0B0</color>
+
+    <!-- 主要按钮颜色 -->
+    <color name="colorPrimaryButton">#1E90FF</color>
+
+    <!-- 次要按钮颜色 -->
+    <color name="colorSecondaryButton">#555555</color> <!-- 建议设置为不同于主要按钮的颜色 -->
+
+    <!-- 进度条轨道 -->
+    <color name="colorProgressTrack">#3A3A3A</color>
+
+    <!-- 进度条进度 -->
+    <color name="colorProgressProgress">#1E90FF</color>
+
+    <!-- 图标颜色 -->
+    <color name="colorIcon">#FFFFFF</color>
+
+    <!-- 高亮图标颜色 -->
+    <color name="colorIconHighlight">#1E90FF</color>
+
+    <!-- 卡片和容器 背景 -->
+    <color name="colorCardBackground">#2C2C2E</color>
+
+    <!-- 卡片和容器 边框 -->
+    <color name="colorCardShadow">#444444</color>
+
+    <!-- Ripple颜色 -->
+    <color name="colorRipple">#40FFFFFF</color>
+
+    <!-- 按下状态 -->
+    <color name="color_pressed">#1C86EE</color> <!-- 稍暗的蓝色，与 colorPrimaryButton 保持一致 -->
+
+    <!-- 选中状态 -->
+    <color name="color_selected">#40FFFFFF</color>
+
+    <!-- 未选中状态 -->
+    <color name="color_unselect">@color/colorBackground</color>
+
+    <!-- 禁用文本颜色 -->
+    <color name="colorDisabledText">#666666</color>
+
+    <!-- 错误颜色 -->
+    <color name="colorError">#FF5252</color>
+
+    <!-- 警告颜色 -->
+    <color name="colorWarning">#FFC107</color>
+
+    <!-- 成功颜色 -->
+    <color name="colorSuccess">#4CAF50</color>
+
+    <!-- 分隔线颜色 -->
+    <color name="colorDivider">#444444</color>
+
+    <!-- 半透明黑色覆盖层 -->
+    <color name="colorOverlay">#80000000</color>
+
+    <!-- 橙色 -->
+    <color name="orange">#FFFFA500</color>
+    <!-- 对话框确认按钮的文本颜色 -->
+    <color name="common_confirm_text_color">#007AFF</color>
+    <!-- 对话框取消按钮的文本颜色 -->
+    <color name="common_cancel_text_color">#F44336</color>
+    <!-- 按钮按压时的颜色 -->
+    <color name="common_button_pressed_color">#AA5A8DDF</color>
+    <!-- 按钮禁用时的颜色 -->
+    <color name="common_button_disable_color">#BBBBBB</color>
+    <color name="common_accent_color">#5A8DDF</color>
+
     <!-- 透明色 -->
     <color name="transparent">#00000000</color>
     <color name="status_def_color">#FFCCCCCC</color>
