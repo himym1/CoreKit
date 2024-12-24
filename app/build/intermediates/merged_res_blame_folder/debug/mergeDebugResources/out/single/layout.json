@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.himym.main.app-mergeDebugResources-44:/layout/fragment_sample.xml",
+        "source": "com.himym.main.app-main-47:/layout/fragment_sample.xml"
+    },
+    {
+        "merged": "com.himym.main.app-mergeDebugResources-44:/layout/activity_main.xml",
+        "source": "com.himym.main.app-main-47:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.himym.main.app-mergeDebugResources-44:/layout/view_common_toolbar.xml",
+        "source": "com.himym.main.app-main-47:/layout/view_common_toolbar.xml"
+    },
+    {
+        "merged": "com.himym.main.app-mergeDebugResources-44:/layout/activity_second.xml",
+        "source": "com.himym.main.app-main-47:/layout/activity_second.xml"
+    }
+]

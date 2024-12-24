@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="colorBackground">#1C1C1E</color>
+    <color name="colorPrimary">#1E90FF</color>
+    <color name="purple_500">#9C27B0</color>
+    <color name="purple_700">#7B1FA2</color>
+    <color name="teal_200">#80CBC4</color>
+    <color name="teal_700">#00796B</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">AndroidCoreKit</string>
+    <style name="Theme.ToppingLauncher" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/colorPrimary</item>
+        
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        
+        <item name="android:colorBackground">@color/colorBackground</item>
+        
+        <item name="android:windowBackground">@color/colorBackground</item>
+    </style>
+</resources>

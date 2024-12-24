@@ -1,0 +1,178 @@
+[
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_scale_in.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_scale_in.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_layout_from_right_item.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/layout_from_right_item.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_layout_from_bottom.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/layout_from_bottom.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/layout_activity_main.xml.flat",
+        "source": "com.himym.main.app-main-47:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_layout_from_right.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/layout_from_right.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_ios_out.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_ios_out.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/layout_view_common_toolbar.xml.flat",
+        "source": "com.himym.main.app-main-47:/layout/view_common_toolbar.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/drawable_ic_arrow_back_ios_new_24.xml.flat",
+        "source": "com.himym.main.app-main-47:/drawable/ic_arrow_back_ios_new_24.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-xxhdpi_ic_all_apps.png.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-xxhdpi/ic_all_apps.png"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_anim_btm_top.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/anim_btm_top.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_layout_fall_down.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/layout_fall_down.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_bottom_in.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_bottom_in.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_right_out.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_right_out.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_anim_top_btm.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/anim_top_btm.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/xml_data_extraction_rules.xml.flat",
+        "source": "com.himym.main.app-main-47:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_dialog_push_in.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/dialog_push_in.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/xml_backup_rules.xml.flat",
+        "source": "com.himym.main.app-main-47:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_dialog_right_in.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/dialog_right_in.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-xxhdpi_ic_cd_disk.png.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-xxhdpi/ic_cd_disk.png"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-xxhdpi_ic_music_service.png.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-xxhdpi/ic_music_service.png"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_dialog_push_out.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/dialog_push_out.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_dialog_right_out.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/dialog_right_out.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_ios_in.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_ios_in.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_top_in.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_top_in.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/layout_activity_second.xml.flat",
+        "source": "com.himym.main.app-main-47:/layout/activity_second.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_bottom_out.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_bottom_out.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/layout_fragment_sample.xml.flat",
+        "source": "com.himym.main.app-main-47:/layout/fragment_sample.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_top_out.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_top_out.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_left_in.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_left_in.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_layout_from_bottom_item.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/layout_from_bottom_item.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_scale_out.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_scale_out.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_layout_fall_down_item.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/layout_fall_down_item.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_right_in.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_right_in.xml"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.himym.main.app-main-47:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.himym.main.app-debug-45:/anim_window_left_out.xml.flat",
+        "source": "com.himym.main.app-main-47:/anim/window_left_out.xml"
+    }
+]
