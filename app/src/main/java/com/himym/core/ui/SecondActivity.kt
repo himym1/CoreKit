@@ -71,11 +71,9 @@ class SecondActivity : BaseCommonActivity<ActivitySecondBinding>() {
             .commit()
     }
 
-    override val useToolbar: Boolean
-        get() = true
-
-    override val toolbarConfig: ToolbarConfig
-        get() = ToolbarConfig(
+    override fun getToolbarConfig(): ToolbarConfig {
+        return ToolbarConfig(
             title = "Second Activity",
         )
+    }
 }
