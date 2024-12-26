@@ -4138,6 +4138,7 @@ id bounceStart
 id btn
 id btn_cancel
 id btn_confirm
+id btn_dialog
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -4295,6 +4296,7 @@ id line3
 id linear
 id listMode
 id list_item
+id ll_options
 id ll_ui_container
 id lottie_layer_name
 id m3_side_sheet
@@ -4546,6 +4548,7 @@ id tvRight
 id tvTitle
 id tv_input_message
 id tv_message_message
+id tv_option
 id tv_title
 id tv_ui_cancel
 id tv_ui_confirm
@@ -4712,10 +4715,12 @@ layout design_text_input_start_icon
 layout dialog_input
 layout dialog_message
 layout dialog_option_selection
+layout dialog_single_choice
 layout dialog_wait
 layout fragment_sample
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_single_choice
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

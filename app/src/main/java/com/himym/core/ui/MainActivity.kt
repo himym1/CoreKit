@@ -6,6 +6,8 @@ import com.himym.core.base.BaseCommonActivity
 import com.himym.core.entity.User
 import com.himym.core.entity.User1
 import com.himym.core.extension.setOnDebounceClickListener
+import com.himym.core.extension.showSingleChoiceDialog
+import com.himym.core.extension.toast
 import com.himym.main.databinding.ActivityMainBinding
 
 /**
@@ -27,6 +29,15 @@ class MainActivity:BaseCommonActivity<ActivityMainBinding>() {
                 listOf(User(1, "himym")),
                 listOf(User1("himym", sex = "11"))
             )
+        }
+
+        mBinding.btnDialog.setOnDebounceClickListener {
+            showSingleChoiceDialog(
+                "请选择",
+                listOf("选项1", "选项2", "选项3")
+            ) { index, option ->
+                toast("选择了$option")
+            }
         }
     }
 }

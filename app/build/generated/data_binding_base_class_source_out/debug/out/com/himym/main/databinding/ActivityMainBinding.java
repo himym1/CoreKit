@@ -22,9 +22,14 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final AppCompatButton btn;
 
-  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull AppCompatButton btn) {
+  @NonNull
+  public final AppCompatButton btnDialog;
+
+  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull AppCompatButton btn,
+      @NonNull AppCompatButton btnDialog) {
     this.rootView = rootView;
     this.btn = btn;
+    this.btnDialog = btnDialog;
   }
 
   @Override
@@ -60,7 +65,13 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, btn);
+      id = R.id.btn_dialog;
+      AppCompatButton btnDialog = ViewBindings.findChildViewById(rootView, id);
+      if (btnDialog == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((LinearLayout) rootView, btn, btnDialog);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

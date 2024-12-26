@@ -912,6 +912,7 @@ int id debounce_tag 0x0
 int id english 0x0
 int id ivBack 0x0
 int id ivRight 0x0
+int id ll_options 0x0
 int id ll_ui_container 0x0
 int id mobile 0x0
 int id name 0x0
@@ -922,6 +923,7 @@ int id tvRight 0x0
 int id tvTitle 0x0
 int id tv_input_message 0x0
 int id tv_message_message 0x0
+int id tv_option 0x0
 int id tv_title 0x0
 int id tv_ui_cancel 0x0
 int id tv_ui_confirm 0x0
@@ -932,7 +934,9 @@ int integer window_anim_duration 0x0
 int layout dialog_input 0x0
 int layout dialog_message 0x0
 int layout dialog_option_selection 0x0
+int layout dialog_single_choice 0x0
 int layout dialog_wait 0x0
+int layout item_single_choice 0x0
 int layout view_common_toolbar 0x0
 int raw progress 0x0
 int string common_cancel 0x0

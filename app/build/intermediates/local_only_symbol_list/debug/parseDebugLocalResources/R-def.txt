@@ -34,6 +34,7 @@ color teal_700
 color white
 drawable ic_arrow_back_ios_new_24
 id btn
+id btn_dialog
 id clToolBar
 id fragment_container
 id ivBack

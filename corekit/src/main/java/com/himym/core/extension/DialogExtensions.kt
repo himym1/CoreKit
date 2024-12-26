@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager
 import com.himym.core.dialog.InputDialogFragment
 import com.himym.core.dialog.MessageDialogFragment
 import com.himym.core.dialog.OptionSelectionDialogFragment
+import com.himym.core.dialog.SingleChoiceDialogFragment
 
 /**
  * @author himym
@@ -124,5 +125,29 @@ fun FragmentActivity.showInputDialog(
     val dialog = InputDialogFragment.newInstance(title, hint)
     dialog.onInputConfirmed = onInputConfirmed
     dialog.showAllowStateLoss(supportFragmentManager, "InputDialog")
+}
+
+fun FragmentManager.showSingleChoiceDialog(
+    title: String,
+    options: List<String>,
+    onItemSelected: ((Int, String) -> Unit)? = null
+) {
+    val dialog = SingleChoiceDialogFragment.newInstance(title, options)
+    dialog.onItemSelectedListener = onItemSelected
+    dialog.show(this, "SingleChoiceDialog")
+}
+
+fun FragmentActivity.showSingleChoiceDialog(
+    title: String,
+    options: List<String>,
+    onItemSelected: ((Int, String) -> Unit)? = null
+) {
+    if (isFinishing || isDestroyed || supportFragmentManager.isStateSaved) {
+        return
+    }
+
+    val dialog = SingleChoiceDialogFragment.newInstance(title, options)
+    dialog.onItemSelectedListener = onItemSelected
+    dialog.showAllowStateLoss(supportFragmentManager, "SingleChoiceDialog")
 }
 

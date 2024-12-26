@@ -914,6 +914,7 @@ id debounce_tag
 id english
 id ivBack
 id ivRight
+id ll_options
 id ll_ui_container
 id mobile
 id name
@@ -924,6 +925,7 @@ id tvRight
 id tvTitle
 id tv_input_message
 id tv_message_message
+id tv_option
 id tv_title
 id tv_ui_cancel
 id tv_ui_confirm
@@ -934,7 +936,9 @@ integer window_anim_duration
 layout dialog_input
 layout dialog_message
 layout dialog_option_selection
+layout dialog_single_choice
 layout dialog_wait
+layout item_single_choice
 layout view_common_toolbar
 raw progress
 string common_cancel

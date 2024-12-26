@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
+import androidx.annotation.ArrayRes
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
@@ -71,3 +72,15 @@ fun @receiver:ColorRes Int.colorValue(): Int =
  */
 fun @receiver:DimenRes Int.dimenValue(): Float =
     appContext.resources.getDimension(this)
+
+/**
+ * 获取字符串数组资源。
+ */
+fun Context.stringArrayValue(@ArrayRes arrayRes: Int): Array<String> =
+    resources.getStringArray(arrayRes)
+
+/**
+ * 全局资源访问：获取字符串数组。
+ */
+fun @receiver:ArrayRes Int.stringArrayValue(): Array<String> =
+    appContext.resources.getStringArray(this)

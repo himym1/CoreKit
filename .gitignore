@@ -21,3 +21,7 @@ local.properties
 
 # Keystore 文件（如果存在）
 *.keystore
+
+/corekit/build/
+
+/app/build/
