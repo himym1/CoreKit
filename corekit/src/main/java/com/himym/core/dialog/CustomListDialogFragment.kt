@@ -53,6 +53,7 @@ class CustomListDialogFragment<T> : BaseDialogFragment<DialogCustomListBinding>(
     companion object {
         private const val ARG_ITEMS = "arg_items"
 
+        //
         fun <T> newInstance(
             title: String,
             items: List<T>,
