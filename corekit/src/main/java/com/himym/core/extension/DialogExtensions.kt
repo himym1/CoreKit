@@ -1,7 +1,10 @@
 package com.himym.core.extension
 
+import android.view.View
+import androidx.annotation.LayoutRes
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+import com.himym.core.dialog.CustomListDialogFragment
 import com.himym.core.dialog.InputDialogFragment
 import com.himym.core.dialog.MessageDialogFragment
 import com.himym.core.dialog.OptionSelectionDialogFragment
@@ -151,3 +154,41 @@ fun FragmentActivity.showSingleChoiceDialog(
     dialog.showAllowStateLoss(supportFragmentManager, "SingleChoiceDialog")
 }
 
+
+fun <T> FragmentManager.showCustomListDialog(
+    title: String,
+    items: List<T>,
+    @LayoutRes itemLayoutRes: Int,
+    bindView: (View, T, Int) -> Unit,
+    onItemSelected: ((Int, T) -> Unit)? = null
+) {
+    val dialog = CustomListDialogFragment.newInstance(
+        title = title,
+        items = items,
+        itemLayoutRes = itemLayoutRes,
+        bindView = bindView
+    )
+    dialog.onItemSelectedListener = onItemSelected
+    dialog.show(this, "CustomListDialog")
+}
+
+fun <T> FragmentActivity.showCustomListDialog(
+    title: String,
+    items: List<T>,
+    @LayoutRes itemLayoutRes: Int,
+    bindView: (View, T, Int) -> Unit,
+    onItemSelected: ((Int, T) -> Unit)? = null
+) {
+    if (isFinishing || isDestroyed || supportFragmentManager.isStateSaved) {
+        return
+    }
+
+    val dialog = CustomListDialogFragment.newInstance(
+        title = title,
+        items = items,
+        itemLayoutRes = itemLayoutRes,
+        bindView = bindView
+    )
+    dialog.onItemSelectedListener = onItemSelected
+    dialog.showAllowStateLoss(supportFragmentManager, "CustomListDialog")
+}

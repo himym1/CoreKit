@@ -10,4 +10,4 @@ import kotlinx.parcelize.Parcelize
  * @desc:
  */
 @Parcelize
-data class User(val id: Int, val name: String) : Parcelable
+data class User(val id: Int, val name: String = "",val avatar:String = "") : Parcelable

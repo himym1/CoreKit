@@ -1,13 +1,19 @@
 package com.himym.core.ui
 
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import com.himym.core.anno.ActivityConfig
 import com.himym.core.base.BaseCommonActivity
 import com.himym.core.entity.User
 import com.himym.core.entity.User1
+import com.himym.core.extension.loadImage
 import com.himym.core.extension.setOnDebounceClickListener
+import com.himym.core.extension.showCustomListDialog
 import com.himym.core.extension.showSingleChoiceDialog
 import com.himym.core.extension.toast
+import com.himym.main.R
 import com.himym.main.databinding.ActivityMainBinding
 
 /**
@@ -38,6 +44,26 @@ class MainActivity:BaseCommonActivity<ActivityMainBinding>() {
             ) { index, option ->
                 toast("选择了$option")
             }
+        }
+
+        mBinding.btnDialogList.setOnDebounceClickListener {
+            showCustomListDialog(  // 明确指定泛型类型为 User
+                title = "选择用户",
+                items = listOf(
+                    User(1, "用户1", "https://s1.aigei.com/src/img/jpg/18/18f6db8f29004415a7d881a2863a5943.jpg?imageMogr2/auto-orient/thumbnail/!282x282r/gravity/Center/crop/282x282/quality/85/%7CimageView2/2/w/282&e=1735488000&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:8RFf7zPPLGz6XcZN6W5dzKSHrxk="),
+                    User(2, "用户2", "https://s1.aigei.com/src/img/jpg/5f/5f47f1aeb99c45ba8e0be2c40a6bee2b.jpg?imageMogr2/auto-orient/thumbnail/!282x282r/gravity/Center/crop/282x282/quality/85/%7CimageView2/2/w/282&e=1735488000&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:6NcnzfIFhwOpyH30SyQwwHQLIDE=")
+                ),
+                itemLayoutRes = R.layout.item_user,
+                bindView = { itemView, user, position ->  // 使用具名参数
+                    itemView.apply {
+                        findViewById<TextView>(R.id.tv_name).text = user.name
+                        findViewById<ImageView>(R.id.iv_avatar).loadImage(user.avatar)
+                    }
+                },
+                onItemSelected = { index, user ->  // 使用具名参数
+                    Toast.makeText(this, "选择了用户：${user.name}", Toast.LENGTH_SHORT).show()
+                }
+            )
         }
     }
 }
