@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
+import com.himym.core.base.toolbar.ToolbarHelper
+import com.himym.core.base.toolbar.ToolbarState
 import com.himym.core.extension.getStatusBarHeight
 import com.himym.core.ui.BaseActivity
 import com.himym.corekit.R
@@ -16,7 +18,10 @@ import com.himym.corekit.R
 abstract class BaseCommonActivity<VB : ViewBinding> : BaseActivity<VB>() {
 
     private val dialogTag = "loading_fragment"
-    private val toolbarHelper by lazy { ToolbarHelper(this) }
+
+    protected val toolbarHelper by lazy { ToolbarHelper(this) }
+
+    protected open fun getInitialToolbarState(): ToolbarState? = null
 
     private val loadingManager by lazy { DefaultLoadingManager(ActivityHost(this)) }
 
@@ -27,22 +32,18 @@ abstract class BaseCommonActivity<VB : ViewBinding> : BaseActivity<VB>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        getToolbarConfig()?.let { config ->
+        getInitialToolbarState()?.let { state ->
+            // 设置 Toolbar margin
             findViewById<View>(R.id.clToolBar)?.apply {
                 val layoutParams = layoutParams as ViewGroup.MarginLayoutParams
                 layoutParams.topMargin = getStatusBarHeight()
                 setLayoutParams(layoutParams)
             }
-            toolbarHelper.setupToolbar(config)
+            // 设置 Toolbar 状态
+            toolbarHelper.setup(state)
         }
 
     }
-
-    /**
-     * 子类可覆盖此方法，返回 Toolbar 配置。
-     * 如果返回 null，则不启用 Toolbar。
-     */
-    protected open fun getToolbarConfig(): ToolbarConfig? = null
 
     override fun initActivity(savedInstanceState: Bundle?) {
         initView()

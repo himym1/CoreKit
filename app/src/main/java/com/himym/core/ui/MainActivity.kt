@@ -1,11 +1,13 @@
 package com.himym.core.ui
 
-import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.himym.core.anno.ActivityConfig
 import com.himym.core.base.BaseCommonActivity
+import com.himym.core.base.toolbar.ToolbarState
 import com.himym.core.entity.User
 import com.himym.core.entity.User1
 import com.himym.core.extension.loadImage
@@ -13,8 +15,10 @@ import com.himym.core.extension.setOnDebounceClickListener
 import com.himym.core.extension.showCustomListDialog
 import com.himym.core.extension.showSingleChoiceDialog
 import com.himym.core.extension.toast
+import com.himym.core.helper.ePrint
 import com.himym.main.R
 import com.himym.main.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
 
 /**
  *
@@ -25,7 +29,10 @@ import com.himym.main.databinding.ActivityMainBinding
 @ActivityConfig(hideStatusBar = true)
 class MainActivity:BaseCommonActivity<ActivityMainBinding>() {
 
-    override fun initActivity(savedInstanceState: Bundle?) {
+    private val viewModel: MainViewModel by viewModels()
+
+    override fun initView() {
+        super.initView()
         mBinding.btn.setOnDebounceClickListener {
             SecondActivity.start(
                 this,
@@ -64,6 +71,45 @@ class MainActivity:BaseCommonActivity<ActivityMainBinding>() {
                     Toast.makeText(this, "选择了用户：${user.name}", Toast.LENGTH_SHORT).show()
                 }
             )
+        }
+
+    }
+
+    override fun getInitialToolbarState(): ToolbarState = ToolbarState.WithSwitch(
+        title = "主页",
+        rightText = "独立均衡",
+        isChecked = false,
+        onSwitchChanged = { isChecked ->
+            viewModel.loadSwitchState(isChecked)
+        }
+    ).apply {
+        ePrint {
+            "title: $title, rightText: $rightText, isChecked: $isChecked"
+        }
+        viewModel.setToolbarReady()
+    }
+
+    override fun initData() {
+        super.initData()
+        // 这里的更新会通过 toolbarState 的观察自动更新 UI
+        viewModel.loadSwitchState(true).apply {
+            ePrint {
+                "isChecked: $this"
+            }
+        }
+    }
+
+    override fun initObserver() {
+        lifecycleScope.launch {
+            // 这里接收的状态已经确保是在 Toolbar 初始化完成后的
+            viewModel.toolbarState.collect { state ->
+                toolbarHelper.updateState { currentState ->
+                    when (currentState) {
+                        is ToolbarState.WithSwitch -> currentState.copy(isChecked = state)
+                        else -> currentState
+                    }
+                }
+            }
         }
     }
 }

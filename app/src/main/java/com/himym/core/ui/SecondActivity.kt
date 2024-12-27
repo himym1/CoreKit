@@ -4,11 +4,13 @@ import android.content.Context
 import android.os.Bundle
 import com.himym.core.anno.ActivityConfig
 import com.himym.core.base.BaseCommonActivity
-import com.himym.core.base.ToolbarConfig
+import com.himym.core.base.toolbar.ToolbarState
+import com.himym.core.base.toolbar.toolbar
 import com.himym.core.entity.User
 import com.himym.core.entity.User1
 import com.himym.core.extension.intentExtra
 import com.himym.core.extension.launchActivity
+import com.himym.core.extension.toast
 import com.himym.core.helper.ePrint
 import com.himym.main.R
 import com.himym.main.databinding.ActivitySecondBinding
@@ -71,9 +73,12 @@ class SecondActivity : BaseCommonActivity<ActivitySecondBinding>() {
             .commit()
     }
 
-    override fun getToolbarConfig(): ToolbarConfig {
-        return ToolbarConfig(
-            title = "Second Activity",
-        )
+    override fun getInitialToolbarState(): ToolbarState? {
+        return toolbar {
+            title = "Second Activity"
+            onBackClick = {
+                "点击了".toast()
+            }
+        }
     }
 }
