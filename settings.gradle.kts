@@ -20,5 +20,3 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "AndroidCoreKit"
-include(":app")
-include(":corekit")
