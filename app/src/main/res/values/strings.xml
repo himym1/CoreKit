@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">通用工具箱</string>
+    <string name="data_empty_tag">未查找到任何数据!</string>
+    <string name="data_loading_tag">正在努力加载数据中..</string>
+    <string name="data_reload_tag">加载出错啦, 点击重新加载!</string>
+    <string name="common_cancel" translatable="false">取消</string>
+    <string name="common_confirm" translatable="false">确定</string>
 </resources>

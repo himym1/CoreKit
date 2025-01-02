@@ -2,7 +2,6 @@ package com.himym.core.base
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.DialogFragment
 import androidx.viewbinding.ViewBinding
 import com.himym.core.ui.BaseFragment
 
