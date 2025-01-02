@@ -1,26 +1,29 @@
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
     kotlin("kapt")
-    id("maven-publish")                
+    // kotlin-parcelize
+    id("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.himym.corekit"
+    namespace = "com.himym.main"
     compileSdk = 35
 
     defaultConfig {
         minSdk = 26
+        versionCode = 1
+        versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
             )
         }
     }
@@ -33,16 +36,13 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-
     buildFeatures {
         viewBinding = true
     }
+
 }
 
 dependencies {
-    api(libs.bundles.appcompat)
-    api(libs.bundles.lifecycle)
-    api(libs.bundles.ui)
-    api(libs.bundles.networkAndStorage)
-    api(libs.bundles.imageProcessing)
+    implementation(project(":corekit"))
+
 }

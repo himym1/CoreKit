@@ -1,5 +1,6 @@
 package com.himym.core.utils
 
+import android.annotation.TargetApi
 import android.app.Activity
 import android.graphics.Color
 import android.os.Build
