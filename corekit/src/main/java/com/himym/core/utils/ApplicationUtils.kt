@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.himym.core.utils
+package com.topping.core.utils
 
 import android.content.Context
 import android.content.Intent

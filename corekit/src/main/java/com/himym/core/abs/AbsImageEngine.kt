@@ -1,9 +1,9 @@
-package com.himym.core.abs
+package com.topping.core.abs
 
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
-import com.himym.core.helper.SingletonHelperArg0
+import com.topping.core.helper.SingletonHelperArg0
 
 /**
  * @author himym.

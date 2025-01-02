@@ -1,4 +1,4 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import android.annotation.SuppressLint
 import java.text.SimpleDateFormat

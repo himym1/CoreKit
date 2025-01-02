@@ -1,8 +1,8 @@
-package com.himym.core.utils.download.downloader
+package com.topping.core.utils.download.downloader
 
-import com.himym.core.utils.download.DownloadException
-import com.himym.core.utils.download.contentLength
-import com.himym.core.utils.download.tmpFile
+import com.topping.core.utils.download.DownloadException
+import com.topping.core.utils.download.contentLength
+import com.topping.core.utils.download.tmpFile
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

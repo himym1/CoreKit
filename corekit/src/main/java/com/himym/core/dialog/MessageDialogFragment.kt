@@ -1,17 +1,17 @@
-package com.himym.core.dialog
+package com.topping.core.dialog
 
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import androidx.core.os.bundleOf
-import com.himym.core.Constants.ARG_CONTENT
-import com.himym.core.Constants.ARG_TITLE
-import com.himym.core.entity.DialogDisplayConfig
-import com.himym.core.extension.setOnDebounceClickListener
-import com.himym.core.ui.BaseDialogFragment
-import com.himym.core.utils.screenWidth
-import com.himym.corekit.databinding.DialogMessageBinding
+import com.topping.core.Constants.ARG_CONTENT
+import com.topping.core.Constants.ARG_TITLE
+import com.topping.core.entity.DialogDisplayConfig
+import com.topping.core.extension.setOnDebounceClickListener
+import com.topping.core.ui.BaseDialogFragment
+import com.topping.core.utils.screenWidth
+import com.topping.corekit.databinding.DialogMessageBinding
 
 /**
  * @author himym.

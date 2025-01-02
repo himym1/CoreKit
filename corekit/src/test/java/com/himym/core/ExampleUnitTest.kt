@@ -1,4 +1,4 @@
-package com.himym.core
+package com.topping.core
 
 import org.junit.Test
 

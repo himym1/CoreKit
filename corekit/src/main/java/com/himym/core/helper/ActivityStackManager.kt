@@ -1,6 +1,6 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
-package com.himym.core.helper
+package com.topping.core.helper
 
 import android.app.Activity
 import android.os.Process

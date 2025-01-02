@@ -28,7 +28,7 @@
                 android:textStyle="bold"
                 tools:text="标题" />
 
-            <com.himym.core.widget.RegexEditText
+            <com.topping.core.widget.RegexEditText
                 android:id="@+id/tv_input_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

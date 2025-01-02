@@ -1,4 +1,4 @@
-package com.himym.core.helper
+package com.topping.core.helper
 
 import android.util.Log
 import okhttp3.HttpUrl

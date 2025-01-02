@@ -1,17 +1,17 @@
-package com.himym.core.ui
+package com.topping.core.ui
 
 import android.content.Context
 import android.os.Bundle
-import com.himym.core.anno.ActivityConfig
-import com.himym.core.base.BaseCommonActivity
-import com.himym.core.base.toolbar.ToolbarState
-import com.himym.core.base.toolbar.toolbar
-import com.himym.core.entity.User
-import com.himym.core.entity.User1
-import com.himym.core.extension.intentExtra
-import com.himym.core.extension.launchActivity
-import com.himym.core.extension.toast
-import com.himym.core.helper.ePrint
+import com.topping.core.anno.ActivityConfig
+import com.topping.core.base.BaseCommonActivity
+import com.topping.core.base.toolbar.ToolbarState
+import com.topping.core.base.toolbar.toolbar
+import com.topping.core.entity.User
+import com.topping.core.entity.User1
+import com.topping.core.extension.intentExtra
+import com.topping.core.extension.launchActivity
+import com.topping.core.extension.toast
+import com.topping.core.helper.ePrint
 import com.himym.main.R
 import com.himym.main.databinding.ActivitySecondBinding
 

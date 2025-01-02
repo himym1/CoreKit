@@ -1,4 +1,4 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

@@ -1,4 +1,4 @@
-package com.himym.core.entity
+package com.topping.core.entity
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

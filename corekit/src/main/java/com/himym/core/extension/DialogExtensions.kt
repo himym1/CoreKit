@@ -1,15 +1,15 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import com.himym.core.dialog.CustomListDialogFragment
-import com.himym.core.dialog.InputDialogFragment
-import com.himym.core.dialog.MessageDialogFragment
-import com.himym.core.dialog.OptionSelectionDialogFragment
-import com.himym.core.dialog.SingleChoiceDialogFragment
-import com.himym.core.dialog.SingleChoiceWithCheckDialogFragment
+import com.topping.core.dialog.CustomListDialogFragment
+import com.topping.core.dialog.InputDialogFragment
+import com.topping.core.dialog.MessageDialogFragment
+import com.topping.core.dialog.OptionSelectionDialogFragment
+import com.topping.core.dialog.SingleChoiceDialogFragment
+import com.topping.core.dialog.SingleChoiceWithCheckDialogFragment
 
 /**
  * @author himym

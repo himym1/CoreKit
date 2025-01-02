@@ -1,4 +1,4 @@
-package com.himym.core.ui
+package com.topping.core.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

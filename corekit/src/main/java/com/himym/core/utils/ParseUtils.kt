@@ -1,13 +1,13 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
-package com.himym.core.utils
+package com.topping.core.utils
 
 import com.google.gson.GsonBuilder
 import com.google.gson.TypeAdapter
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonToken
 import com.google.gson.stream.JsonWriter
-import com.himym.core.helper.SingletonHelperArg0
+import com.topping.core.helper.SingletonHelperArg0
 import java.lang.reflect.Type
 
 

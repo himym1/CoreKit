@@ -1,4 +1,4 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2

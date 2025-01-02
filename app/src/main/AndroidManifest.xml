@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name="com.himym.core.App"
+        android:name="com.topping.core.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,7 +15,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name="com.himym.core.ui.MainActivity"
+            android:name="com.topping.core.ui.MainActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:excludeFromRecents="true"
@@ -32,7 +32,7 @@
 
         </activity>
 
-        <activity android:name="com.himym.core.ui.SecondActivity"
+        <activity android:name="com.topping.core.ui.SecondActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="landscape"/>
 

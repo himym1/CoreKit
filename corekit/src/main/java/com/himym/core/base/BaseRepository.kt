@@ -1,4 +1,4 @@
-package com.himym.core.base
+package com.topping.core.base
 
 import kotlinx.coroutines.flow.FlowCollector
 

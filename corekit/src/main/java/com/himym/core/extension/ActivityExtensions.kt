@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.himym.core.extension
+package com.topping.core.extension
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -14,7 +14,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentActivity
-import com.himym.core.utils.actionsByR
+import com.topping.core.utils.actionsByR
 
 /**
  * FragmentActivity 和 AppCompatActivity 的扩展方法，用于简化常见窗口和系统 UI 的操作。

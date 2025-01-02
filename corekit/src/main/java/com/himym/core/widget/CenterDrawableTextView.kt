@@ -1,10 +1,10 @@
-package com.himym.core.widget
+package com.topping.core.widget
 
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
-import com.himym.core.helper.CenterDrawableHelper
+import com.topping.core.helper.CenterDrawableHelper
 
 /**
  * @author himym.

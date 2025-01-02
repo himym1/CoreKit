@@ -1,7 +1,7 @@
-package com.himym.core.base
+package com.topping.core.base
 
 import androidx.fragment.app.DialogFragment
-import com.himym.core.dialog.LoadingFragment
+import com.topping.core.dialog.LoadingFragment
 
 /**
  *

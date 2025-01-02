@@ -1,4 +1,4 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import android.view.animation.Animation
 import android.animation.Animator

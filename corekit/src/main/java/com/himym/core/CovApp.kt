@@ -1,15 +1,15 @@
-package com.himym.core
+package com.topping.core
 
 import android.app.Application
-import com.himym.core.abs.AbsImageEngine
-import com.himym.core.abs.ImageLoadHelper
-import com.himym.core.config.GlobalConfig
-import com.himym.core.extension.DEFAULT_DEBOUNCE_TIME
-import com.himym.core.helper.CoilEngine
-import com.himym.core.helper.HttpSingle
-import com.himym.core.helper.RequestConfig
-import com.himym.core.helper.RetrofitHelper
-import com.himym.core.helper.isDebugMode
+import com.topping.core.abs.AbsImageEngine
+import com.topping.core.abs.ImageLoadHelper
+import com.topping.core.config.GlobalConfig
+import com.topping.core.extension.DEFAULT_DEBOUNCE_TIME
+import com.topping.core.helper.CoilEngine
+import com.topping.core.helper.HttpSingle
+import com.topping.core.helper.RequestConfig
+import com.topping.core.helper.RetrofitHelper
+import com.topping.core.helper.isDebugMode
 import com.tencent.mmkv.MMKV
 import okhttp3.OkHttpClient
 import retrofit2.CallAdapter

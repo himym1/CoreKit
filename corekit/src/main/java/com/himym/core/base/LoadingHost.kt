@@ -1,7 +1,7 @@
-package com.himym.core.base
+package com.topping.core.base
 
 import androidx.fragment.app.FragmentManager
-import com.himym.core.ui.BaseFragment
+import com.topping.core.ui.BaseFragment
 
 /**
  *

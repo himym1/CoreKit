@@ -1,4 +1,4 @@
-package com.himym.core.ui
+package com.topping.core.ui
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

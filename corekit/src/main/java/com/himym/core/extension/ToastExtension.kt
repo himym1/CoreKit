@@ -1,9 +1,9 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import android.content.Context
 import android.view.View
 import android.widget.Toast
-import com.himym.core.base.BaseApplication.Companion.appContext
+import com.topping.core.base.BaseApplication.Companion.appContext
 
 /**
  * @author himym.

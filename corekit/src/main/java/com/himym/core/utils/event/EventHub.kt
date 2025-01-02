@@ -1,4 +1,4 @@
-package com.himym.core.utils.event
+package com.topping.core.utils.event
 
 
 import androidx.lifecycle.Lifecycle

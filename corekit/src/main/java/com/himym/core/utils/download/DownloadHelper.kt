@@ -1,9 +1,9 @@
-package com.himym.core.utils.download
+package com.topping.core.utils.download
 
 import android.os.Environment
 import android.webkit.MimeTypeMap
-import com.himym.core.anno.PublicDirectoryType
-import com.himym.core.helper.realRelativePath
+import com.topping.core.anno.PublicDirectoryType
+import com.topping.core.helper.realRelativePath
 import okhttp3.Response
 import okhttp3.internal.toLongOrDefault
 import java.io.File

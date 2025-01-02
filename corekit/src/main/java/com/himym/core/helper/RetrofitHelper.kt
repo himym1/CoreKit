@@ -1,4 +1,4 @@
-package com.himym.core.helper
+package com.topping.core.helper
 
 import okhttp3.OkHttpClient
 import retrofit2.CallAdapter

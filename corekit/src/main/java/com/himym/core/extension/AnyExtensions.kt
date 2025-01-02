@@ -1,4 +1,4 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 /**
  * 通用扩展函数，用于简化常见的逻辑判断和类型处理。

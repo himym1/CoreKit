@@ -1,4 +1,4 @@
-package com.himym.core.widget
+package com.topping.core.widget
 
 import android.content.Context
 import android.text.InputFilter
@@ -6,7 +6,7 @@ import android.text.Spanned
 import android.text.TextUtils
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
-import com.himym.corekit.R
+import com.topping.corekit.R
 import java.util.regex.Pattern
 
 /**

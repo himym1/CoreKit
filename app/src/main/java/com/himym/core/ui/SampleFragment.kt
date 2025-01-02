@@ -1,14 +1,14 @@
-package com.himym.core.ui
+package com.topping.core.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.himym.core.entity.User
-import com.himym.core.extension.arg
-import com.himym.core.extension.viewBinding
-import com.himym.core.extension.withArgs
-import com.himym.core.helper.ePrint
+import com.topping.core.entity.User
+import com.topping.core.extension.arg
+import com.topping.core.extension.viewBinding
+import com.topping.core.extension.withArgs
+import com.topping.core.helper.ePrint
 import com.himym.main.R
 import com.himym.main.databinding.FragmentSampleBinding
 

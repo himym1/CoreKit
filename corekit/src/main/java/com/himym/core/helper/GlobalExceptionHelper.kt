@@ -1,12 +1,12 @@
 @file:Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 
-package com.himym.core.helper
+package com.topping.core.helper
 
 import android.content.Context
 import android.os.Build
-import com.himym.core.listener.OnGlobalThrowableHandler
-import com.himym.core.utils.getAppVersionCode
-import com.himym.core.utils.getAppVersionName
+import com.topping.core.listener.OnGlobalThrowableHandler
+import com.topping.core.utils.getAppVersionCode
+import com.topping.core.utils.getAppVersionName
 import java.io.File
 import java.io.PrintWriter
 import java.io.StringWriter

@@ -1,10 +1,10 @@
 @file:Suppress("EXPERIMENTAL_API_USAGE")
 
-package com.himym.core.helper
+package com.topping.core.helper
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.himym.core.utils.ParseUtils
+import com.topping.core.utils.ParseUtils
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow

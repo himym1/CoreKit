@@ -1,4 +1,4 @@
-package com.himym.core.helper
+package com.topping.core.helper
 
 import android.util.Log
 import org.json.JSONArray
@@ -39,7 +39,7 @@ private fun getStackTraceInfo(): String {
         if (stackTrace[i].className != KLogger::class.java.name &&
             !stackTrace[i].className.contains("kotlin.lang") &&
             !stackTrace[i].className.contains("sun.reflect") &&
-            !stackTrace[i].className.contains("com.himym.core.helper")) {
+            !stackTrace[i].className.contains("com.topping.core.helper")) {
             element = stackTrace[i]
             break
         }

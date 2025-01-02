@@ -1,4 +1,4 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

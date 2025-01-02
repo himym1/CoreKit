@@ -1,10 +1,10 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.util.Log
 import android.widget.TextView
-import com.himym.core.anno.TextViewDrawableOrientation
+import com.topping.core.anno.TextViewDrawableOrientation
 
 /**
  * @author himym.

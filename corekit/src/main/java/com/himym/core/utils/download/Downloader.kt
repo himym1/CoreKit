@@ -1,11 +1,11 @@
-package com.himym.core.utils.download
+package com.topping.core.utils.download
 
 import android.content.Context
-import com.himym.core.anno.PublicDirectoryType
-import com.himym.core.helper.SingletonHelperArg1
-import com.himym.core.helper.copyFileToPublic
-import com.himym.core.utils.download.downloader.NormalDownloader
-import com.himym.core.utils.download.downloader.RangeDownloader
+import com.topping.core.anno.PublicDirectoryType
+import com.topping.core.helper.SingletonHelperArg1
+import com.topping.core.helper.copyFileToPublic
+import com.topping.core.utils.download.downloader.NormalDownloader
+import com.topping.core.utils.download.downloader.RangeDownloader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.withContext

@@ -1,14 +1,14 @@
-package com.himym.core.base
+package com.topping.core.base
 
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.himym.core.base.toolbar.ToolbarHelper
-import com.himym.core.base.toolbar.ToolbarState
-import com.himym.core.extension.getStatusBarHeight
-import com.himym.core.ui.BaseActivity
-import com.himym.corekit.R
+import com.topping.core.base.toolbar.ToolbarHelper
+import com.topping.core.base.toolbar.ToolbarState
+import com.topping.core.extension.getStatusBarHeight
+import com.topping.core.ui.BaseActivity
+import com.topping.corekit.R
 
 /**
  *  @author himym

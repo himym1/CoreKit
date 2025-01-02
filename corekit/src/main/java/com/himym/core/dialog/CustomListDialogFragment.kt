@@ -1,12 +1,12 @@
-package com.himym.core.dialog
+package com.topping.core.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.core.os.bundleOf
-import com.himym.core.Constants.ARG_TITLE
-import com.himym.core.ui.BaseDialogFragment
-import com.himym.corekit.databinding.DialogCustomListBinding
+import com.topping.core.Constants.ARG_TITLE
+import com.topping.core.ui.BaseDialogFragment
+import com.topping.corekit.databinding.DialogCustomListBinding
 
 /**
  *

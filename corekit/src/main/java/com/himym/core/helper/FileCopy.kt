@@ -1,4 +1,4 @@
-package com.himym.core.helper
+package com.topping.core.helper
 
 import android.annotation.TargetApi
 import android.content.ContentValues
@@ -6,8 +6,8 @@ import android.content.Context
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
-import com.himym.core.anno.PublicDirectoryType
-import com.himym.core.utils.getMimeTypeByFile
+import com.topping.core.anno.PublicDirectoryType
+import com.topping.core.utils.getMimeTypeByFile
 import java.io.*
 
 /**

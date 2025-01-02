@@ -1,9 +1,9 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
-import com.himym.core.abs.ImageLoadHelper
-import com.himym.core.config.GlobalConfig
+import com.topping.core.abs.ImageLoadHelper
+import com.topping.core.config.GlobalConfig
 
 /**
  *

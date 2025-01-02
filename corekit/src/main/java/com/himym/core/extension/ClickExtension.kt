@@ -1,7 +1,7 @@
-package com.himym.core.extension
+package com.topping.core.extension
 
 import android.view.View
-import com.himym.corekit.R
+import com.topping.corekit.R
 
 
 /**

@@ -1,6 +1,6 @@
-package com.himym.core
+package com.topping.core
 
-import com.himym.core.base.BaseApplication
+import com.topping.core.base.BaseApplication
 
 /**
  *

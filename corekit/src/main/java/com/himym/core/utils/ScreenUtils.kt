@@ -1,6 +1,6 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
-package com.himym.core.utils
+package com.topping.core.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity

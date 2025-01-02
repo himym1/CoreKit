@@ -1,4 +1,4 @@
-package com.himym.core.widget
+package com.topping.core.widget
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -8,11 +8,11 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
-import com.himym.core.extension.colorValue
-import com.himym.core.extension.drawableValue
-import com.himym.core.extension.stringValue
-import com.himym.core.listener.OnErrorReloadListener
-import com.himym.corekit.R
+import com.topping.core.extension.colorValue
+import com.topping.core.extension.drawableValue
+import com.topping.core.extension.stringValue
+import com.topping.core.listener.OnErrorReloadListener
+import com.topping.corekit.R
 
 /**
  * @author himym.

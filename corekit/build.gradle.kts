@@ -23,7 +23,7 @@ afterEvaluate {
 }
 
 android {
-    namespace = "com.himym.corekit"
+    namespace = "com.topping.corekit"
     compileSdk = 34
 
     defaultConfig {

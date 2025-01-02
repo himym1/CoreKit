@@ -1,4 +1,4 @@
-package com.himym.core.config
+package com.topping.core.config
 
 /**
  *

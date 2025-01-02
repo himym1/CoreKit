@@ -1,12 +1,12 @@
-package com.himym.core.base.toolbar
+package com.topping.core.base.toolbar
 
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.SwitchCompat
-import com.himym.core.base.BaseCommonActivity
-import com.himym.core.extension.setOnDebounceClickListener
-import com.himym.corekit.R
+import com.topping.core.base.BaseCommonActivity
+import com.topping.core.extension.setOnDebounceClickListener
+import com.topping.corekit.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -1,6 +1,6 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package com.himym.core.extension
+package com.topping.core.extension
 
 import android.app.Activity
 import android.content.Context

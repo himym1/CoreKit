@@ -1,4 +1,4 @@
-package com.himym.core.utils
+package com.topping.core.utils
 
 import android.content.Context
 import android.graphics.BitmapFactory

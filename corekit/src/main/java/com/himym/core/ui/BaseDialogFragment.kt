@@ -1,4 +1,4 @@
-package com.himym.core.ui
+package com.topping.core.ui
 
 import android.content.DialogInterface
 import android.graphics.Color
@@ -8,16 +8,16 @@ import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
-import com.himym.core.anno.DialogConfig
-import com.himym.core.anno.DialogSizeType
-import com.himym.core.entity.DialogDisplayConfig
-import com.himym.core.helper.KLogger
-import com.himym.core.helper.ePrint
-import com.himym.core.listener.OnDialogFragmentCancelListener
-import com.himym.core.listener.OnDialogFragmentDismissListener
-import com.himym.core.utils.screenHeight
-import com.himym.core.utils.screenWidth
-import com.himym.corekit.R
+import com.topping.core.anno.DialogConfig
+import com.topping.core.anno.DialogSizeType
+import com.topping.core.entity.DialogDisplayConfig
+import com.topping.core.helper.KLogger
+import com.topping.core.helper.ePrint
+import com.topping.core.listener.OnDialogFragmentCancelListener
+import com.topping.core.listener.OnDialogFragmentDismissListener
+import com.topping.core.utils.screenHeight
+import com.topping.core.utils.screenWidth
+import com.topping.corekit.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
